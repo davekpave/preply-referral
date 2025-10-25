@@ -27,22 +27,29 @@
       background: var(--primary);
       color: #fff;
       text-align: center;
-      padding: 3rem 1rem 2rem;
+      border-bottom: 5px solid #ff9dc0;
+    }
+
+    header img {
+      width: 100%;
+      max-height: 400px;
+      object-fit: cover;
       border-bottom: 5px solid #ff9dc0;
     }
 
     header h1 {
       font-size: 2rem;
-      margin-bottom: 0.75rem;
+      margin: 1.5rem 0 0.5rem;
     }
 
     header p {
       font-size: 1.1rem;
       opacity: 0.95;
+      margin-bottom: 2rem;
     }
 
     main {
-      max-width: 800px;
+      max-width: 900px;
       background: var(--card-bg);
       margin: 2rem auto;
       padding: 2rem;
@@ -68,6 +75,28 @@
     li::marker {
       color: var(--primary);
       font-weight: bold;
+    }
+
+    /* Split layout for Why Learn with Preply */
+    .split {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .split img {
+      flex: 1;
+      min-width: 280px;
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    .split div {
+      flex: 1;
+      min-width: 280px;
     }
 
     .cta {
@@ -109,26 +138,31 @@
     @media (max-width: 600px) {
       header h1 { font-size: 1.5rem; }
       main { margin: 1rem; padding: 1.5rem; }
+      .split { flex-direction: column; }
     }
   </style>
 </head>
 
 <body>
   <header>
+    <img src="images/hero.png" alt="A student learning a language online with a Preply tutor">
     <h1>Learn a Language Online with a Preply Tutor</h1>
     <p>Get a 30% discount if you sign up through this page!</p>
   </header>
 
   <main>
-    <section>
-      <h2>Why Learn with Preply?</h2>
-      <ul>
-        <li>Take 1-on-1 lessons with experienced tutors from around the world</li>
-        <li>Choose your own budget and flexible schedule</li>
-        <li>Access over 30 languages — from English to Korean</li>
-        <li>Enjoy interactive learning from home or anywhere</li>
-        <li>Benefit from secure payments and trusted support</li>
-      </ul>
+    <section class="split">
+      <img src="preply-referral/study.png" alt="Online learning with a Preply tutor">
+      <div>
+        <h2>Why Learn with Preply?</h2>
+        <ul>
+          <li>Take 1-on-1 lessons with experienced tutors from around the world</li>
+          <li>Choose your own budget and flexible schedule</li>
+          <li>Access over 30 languages — from English to Korean</li>
+          <li>Enjoy interactive learning from home or anywhere</li>
+          <li>Benefit from secure payments and trusted support</li>
+        </ul>
+      </div>
     </section>
 
     <section>
@@ -144,7 +178,7 @@
       <a class="cta"
          href="https://preply.com/en/?pref=MjE5Mjc2MA==&id=1761352777.480834&ep=w1&utm_source=google&utm_medium=cpc&utm_campaign=student_referral&utm_term={keyword}"
          target="_blank" rel="noopener">
-         🌍 Get Your 30% Discount →
+         Get Your 30% Discount
       </a>
     </div>
 

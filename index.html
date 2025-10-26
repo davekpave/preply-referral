@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Learn a language online with a Preply tutor and get 30% off your first lesson. Take private 1-on-1 classes with experienced teachers from around the world." />
-  <meta name="description" lang="tr" content="Preply eğitmeniyle çevrimiçi dil öğrenin ve ilk dersinizde %30 indirim kazanın. Dünyanın dört bir yanından deneyimli öğretmenlerle bire bir özel dersler alın." />
-  <title>Learn Languages Online with a Preply Tutor | %30 İndirimle Çevrimiçi Dil Öğrenin</title>
-  <link rel="preload" as="image" href="study.png">
+  <meta name="description" content="Learn a language online with a Preply tutor and get 30% off your first lesson. Build real-world speaking, listening, and writing skills through personalized one-on-one lessons." />
+  <meta name="description" lang="tr" content="Preply eğitmeniyle çevrimiçi dil öğrenin ve ilk dersinizde %30 indirim kazanın. Bire bir derslerle konuşma, dinleme ve yazma becerilerinizi geliştirin." />
+  <title>Learn Languages Online with a Preply Tutor | Preply ile %30 İndirimle Dil Öğrenin</title>
+  <link rel="preload" as="image" href="study.png" />
 
   <style>
     :root {
@@ -29,51 +29,29 @@
     header {
       background: var(--primary);
       color: #fff;
-      padding: 1.5rem 1rem 1.25rem;
-      border-bottom: 5px solid #ff9dc0;
+      height: 70px;
       position: relative;
-    }
-
-    header h1 {
-      text-align: center;
-      font-size: 1.75rem;
-      margin-bottom: 0.5rem;
-    }
-
-    header p {
-      text-align: center;
-      font-size: 1rem;
-      opacity: 0.95;
     }
 
     /* Language toggle in top-right */
     .lang-toggle {
       position: absolute;
-      top: 1rem;
-      right: 1rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      padding: 0.6rem 0.85rem;
-      border-radius: 40px;
+      top: 15px;
+      right: 20px;
       background: #fff;
       color: var(--primary);
+      border: none;
+      border-radius: 40px;
       font-weight: 600;
       cursor: pointer;
-      box-shadow: 0 4px 10px rgba(255, 122, 172, 0.25);
-      border: 2px solid #fff;
+      padding: 0.5rem 1rem;
+      box-shadow: 0 3px 10px rgba(255, 122, 172, 0.25);
       transition: transform 0.2s ease, box-shadow 0.2s ease;
-      font-size: 0.95rem;
     }
 
     .lang-toggle:hover {
       transform: translateY(-2px);
-      box-shadow: 0 6px 14px rgba(255, 122, 172, 0.35);
-    }
-
-    .lang-flag {
-      font-size: 1.1rem;
-      line-height: 1;
+      box-shadow: 0 5px 14px rgba(255, 122, 172, 0.35);
     }
 
     main {
@@ -83,6 +61,28 @@
       padding: 2rem;
       border-radius: 14px;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .split {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .split img {
+      flex: 1;
+      min-width: 260px;
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      object-fit: cover;
+    }
+
+    .split .content {
+      flex: 1;
+      min-width: 260px;
     }
 
     h2 {
@@ -103,28 +103,6 @@
     li::marker {
       color: var(--primary);
       font-weight: bold;
-    }
-
-    .split {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 2rem;
-      margin-top: 1.5rem;
-    }
-
-    .split img {
-      flex: 1;
-      min-width: 260px;
-      width: 100%;
-      border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-      object-fit: cover;
-    }
-
-    .split .content {
-      flex: 1;
-      min-width: 260px;
     }
 
     .cta {
@@ -164,9 +142,8 @@
 
     @media (max-width: 700px) {
       .split { flex-direction: column; }
-      header h1 { font-size: 1.3rem; }
       main { margin: 1rem; padding: 1.25rem; }
-      .lang-toggle { font-size: 0.9rem; padding: 0.5rem 0.7rem; }
+      .lang-toggle { font-size: 0.9rem; padding: 0.5rem 0.8rem; }
     }
   </style>
 </head>
@@ -174,12 +151,8 @@
 <body>
   <header>
     <button id="langToggle" class="lang-toggle" aria-label="Switch language" title="Switch language">
-      <span class="lang-flag" id="flagIcon">🇬🇧</span>
-      <span id="langLabel">EN</span>
+      English | Türkçe
     </button>
-
-    <h1>Learn a Language Online with a Preply Tutor</h1>
-    <p>Get a 30% discount if you sign up through this page!</p>
   </header>
 
   <main>
@@ -200,13 +173,13 @@
       </section>
 
       <section>
-        <h2>Top 5 Reasons People Learn on Preply</h2>
+        <h2>What Do Preply Language Students Learn?</h2>
         <ul>
-          <li>To improve speaking fluency for travel or relocation</li>
-          <li>To prepare for international exams like IELTS or TOEFL</li>
-          <li>To advance their career through better communication</li>
-          <li>To connect more easily with people from other cultures</li>
-          <li>To stay consistent with personalized, motivating tutors</li>
+          <li>How to speak naturally and confidently with native speakers</li>
+          <li>Practical vocabulary and grammar for real-life conversations</li>
+          <li>Listening and pronunciation skills through guided practice</li>
+          <li>Writing and reading for work, study, or exams</li>
+          <li>Study habits and learning strategies for long-term fluency</li>
         </ul>
       </section>
 
@@ -251,13 +224,13 @@
       </section>
 
       <section>
-        <h2>İnsanların Preply’de Ders Almasının En İyi 5 Nedeni</h2>
+        <h2>Preply’deki Dil Öğrencileri Ne Öğrenir?</h2>
         <ul>
-          <li>Yurt dışına taşınmak veya seyahat etmek için akıcı konuşma becerilerini geliştirmek</li>
-          <li>IELTS veya TOEFL gibi uluslararası sınavlara hazırlanmak</li>
-          <li>Kariyerinde ilerlemek ve iletişim becerilerini güçlendirmek</li>
-          <li>Farklı kültürlerden insanlarla daha kolay iletişim kurmak</li>
-          <li>Motivasyon sağlayan özel eğitmenlerle düzenli olarak öğrenmek</li>
+          <li>Anadili İngilizce olan kişilerle doğal ve özgüvenli konuşma becerisi</li>
+          <li>Gerçek yaşam konuşmaları için pratik kelime ve dilbilgisi</li>
+          <li>Dinleme ve telaffuz becerilerini geliştirme</li>
+          <li>İş, eğitim veya sınavlar için yazma ve okuma becerileri</li>
+          <li>Uzun vadeli akıcılık için etkili çalışma alışkanlıkları</li>
         </ul>
       </section>
 
@@ -291,23 +264,19 @@
       const toggleBtn = document.getElementById('langToggle');
       const enContent = document.getElementById('enContent');
       const trContent = document.getElementById('trContent');
-      const flagIcon = document.getElementById('flagIcon');
-      const langLabel = document.getElementById('langLabel');
       let current = 'en';
 
       function showEnglish() {
         enContent.classList.add('active');
         trContent.classList.remove('active');
-        flagIcon.textContent = '🇬🇧';
-        langLabel.textContent = 'EN';
+        toggleBtn.textContent = 'English | Türkçe';
         current = 'en';
       }
 
       function showTurkish() {
         trContent.classList.add('active');
         enContent.classList.remove('active');
-        flagIcon.textContent = '🇹🇷';
-        langLabel.textContent = 'TR';
+        toggleBtn.textContent = 'Türkçe | English';
         current = 'tr';
       }
 
@@ -328,5 +297,3 @@
   </script>
 </body>
 </html>
-
-

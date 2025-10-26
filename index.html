@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Learn a language online with a Preply tutor and get 30% off your first lesson. Build real-world speaking, listening, and writing skills through personalized one-on-one lessons." />
-  <meta name="description" lang="tr" content="Preply eğitmeniyle çevrimiçi dil öğrenin ve ilk dersinizde %30 indirim kazanın. Bire bir derslerle konuşma, dinleme ve yazma becerilerinizi geliştirin." />
+  <meta name="description" content="Learn a language online with a Preply tutor and get 30% off your first lesson. Take 1-on-1 lessons, choose your budget, and enjoy flexible online learning." />
+  <meta name="description" lang="tr" content="Preply eğitmeniyle çevrimiçi dil öğrenin ve ilk dersinizde %30 indirim kazanın. Bütçenizi belirleyin ve esnek çevrimiçi öğrenmenin keyfini çıkarın." />
   <title>Learn Languages Online with a Preply Tutor | Preply ile %30 İndirimle Dil Öğrenin</title>
   <link rel="preload" as="image" href="study.png" />
 
@@ -28,12 +28,10 @@
 
     header {
       background: var(--primary);
-      color: #fff;
       height: 70px;
       position: relative;
     }
 
-    /* Language toggle in top-right */
     .lang-toggle {
       position: absolute;
       top: 15px;
@@ -66,9 +64,15 @@
     .split {
       display: flex;
       flex-wrap: wrap;
-      align-items: center;
+      align-items: flex-start;
       gap: 2rem;
       margin-bottom: 1.5rem;
+    }
+
+    .split .content {
+      flex: 1;
+      min-width: 260px;
+      order: 1;
     }
 
     .split img {
@@ -78,11 +82,7 @@
       border-radius: 12px;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
       object-fit: cover;
-    }
-
-    .split .content {
-      flex: 1;
-      min-width: 260px;
+      order: 2;
     }
 
     h2 {
@@ -144,6 +144,8 @@
       .split { flex-direction: column; }
       main { margin: 1rem; padding: 1.25rem; }
       .lang-toggle { font-size: 0.9rem; padding: 0.5rem 0.8rem; }
+      .split img { order: 1; }
+      .split .content { order: 2; }
     }
   </style>
 </head>
@@ -159,36 +161,35 @@
     <!-- English -->
     <div class="lang lang-en active" id="enContent" lang="en">
       <section class="split">
-        <img src="study.png" alt="Online learning with a Preply tutor">
         <div class="content">
           <h2>Why Learn with Preply?</h2>
           <ul>
             <li>Take 1-on-1 lessons with experienced tutors from around the world</li>
-            <li>Choose your own budget and flexible schedule</li>
-            <li>Access over 30 languages — from English to Korean</li>
-            <li>Enjoy interactive learning from home or anywhere</li>
+            <li>Choose your budget and a schedule that fits your lifestyle</li>
+            <li>Learn more than 30 languages — from English to Ukrainian</li>
+            <li>Enjoy interactive lessons from home or anywhere</li>
             <li>Benefit from secure payments and trusted support</li>
           </ul>
+
+          <h2>What Do Preply Language Students Learn?</h2>
+          <ul>
+            <li>To speak naturally and confidently with native speakers</li>
+            <li>Practical vocabulary and grammar for real-life conversations</li>
+            <li>Listening and pronunciation skills through guided practice</li>
+            <li>Writing and reading for work, study, or exams</li>
+            <li>Study habits and learning strategies for long-term fluency</li>
+          </ul>
         </div>
+
+        <img src="study.png" alt="Online learning with a Preply tutor">
       </section>
 
       <section>
-        <h2>What Do Preply Language Students Learn?</h2>
-        <ul>
-          <li>How to speak naturally and confidently with native speakers</li>
-          <li>Practical vocabulary and grammar for real-life conversations</li>
-          <li>Listening and pronunciation skills through guided practice</li>
-          <li>Writing and reading for work, study, or exams</li>
-          <li>Study habits and learning strategies for long-term fluency</li>
-        </ul>
-      </section>
-
-      <section>
-        <h2>How It Works</h2>
+        <h2>How Does It Work?</h2>
         <ol>
           <li>Click the button below to visit Preply.</li>
-          <li>Select your language and find your ideal tutor.</li>
-          <li>Book your first lesson and start learning today!</li>
+          <li>Select the language you want to learn and choose your tutor.</li>
+          <li>Book your first lesson and start learning right away!</li>
         </ol>
       </section>
 
@@ -210,35 +211,34 @@
     <!-- Turkish -->
     <div class="lang lang-tr" id="trContent" lang="tr" aria-hidden="true">
       <section class="split">
-        <img src="study.png" alt="Preply eğitmeniyle çevrimiçi öğrenme">
         <div class="content">
           <h2>Neden Preply’yi Seçmelisiniz?</h2>
           <ul>
             <li>Dünyanın dört bir yanından deneyimli eğitmenlerle bire bir dersler alın</li>
-            <li>Bütçenizi ve uygun ders saatlerinizi kendiniz belirleyin</li>
-            <li>İngilizce’den Korece’ye kadar 30’dan fazla dil arasından seçim yapın</li>
-            <li>Evde veya dilediğiniz yerde etkileşimli derslerle öğrenin</li>
+            <li>Bütçenizi belirleyin ve yaşam tarzınıza uygun bir program seçin</li>
+            <li>İngilizce’den Ukraynaca’ya kadar 30’dan fazla dil öğrenin</li>
+            <li>Evde veya istediğiniz yerde etkileşimli derslerin keyfini çıkarın</li>
             <li>Güvenli ödeme seçenekleri ve destek hizmetinden yararlanın</li>
           </ul>
+
+          <h2>Preply’deki Dil Öğrencileri Ne Öğrenir?</h2>
+          <ul>
+            <li>Anadili İngilizce olan kişilerle doğal ve özgüvenli konuşma becerisi</li>
+            <li>Gerçek yaşam konuşmaları için pratik kelime ve dilbilgisi</li>
+            <li>Dinleme ve telaffuz becerilerini geliştirme</li>
+            <li>İş, eğitim veya sınavlar için yazma ve okuma becerileri</li>
+            <li>Uzun vadeli akıcılık için etkili çalışma alışkanlıkları</li>
+          </ul>
         </div>
+
+        <img src="study.png" alt="Preply eğitmeniyle çevrimiçi öğrenme">
       </section>
 
       <section>
-        <h2>Preply’deki Dil Öğrencileri Ne Öğrenir?</h2>
-        <ul>
-          <li>Anadili İngilizce olan kişilerle doğal ve özgüvenli konuşma becerisi</li>
-          <li>Gerçek yaşam konuşmaları için pratik kelime ve dilbilgisi</li>
-          <li>Dinleme ve telaffuz becerilerini geliştirme</li>
-          <li>İş, eğitim veya sınavlar için yazma ve okuma becerileri</li>
-          <li>Uzun vadeli akıcılık için etkili çalışma alışkanlıkları</li>
-        </ul>
-      </section>
-
-      <section>
-        <h2>Nasıl İşliyor?</h2>
+        <h2>Nasıl Çalışır?</h2>
         <ol>
           <li>Aşağıdaki butona tıklayarak Preply’ye gidin.</li>
-          <li>Öğrenmek istediğiniz dili seçin ve size uygun bir eğitmen bulun.</li>
+          <li>Öğrenmek istediğiniz dili seçin ve size uygun eğitmeni bulun.</li>
           <li>İlk dersinizi ayırtın ve hemen öğrenmeye başlayın!</li>
         </ol>
       </section>
@@ -297,3 +297,4 @@
   </script>
 </body>
 </html>
+

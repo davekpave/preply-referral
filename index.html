@@ -29,78 +29,87 @@
     header {
       background: var(--primary);
       color: #fff;
-      text-align: center;
-      padding: 2.25rem 1rem 1.25rem;
+      padding: 1.5rem 1rem 1.25rem;
       border-bottom: 5px solid #ff9dc0;
-    }
-
-    .title-row {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 1rem;
-      flex-wrap: wrap;
+      position: relative;
     }
 
     header h1 {
+      text-align: center;
       font-size: 1.75rem;
-      margin-bottom: 0.25rem;
-    }
-
-    header p {
-      font-size: 1rem;
-      opacity: 0.95;
       margin-bottom: 0.5rem;
     }
 
+    header p {
+      text-align: center;
+      font-size: 1rem;
+      opacity: 0.95;
+    }
+
+    /* Language toggle in top-right */
     .lang-toggle {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
       display: inline-flex;
       align-items: center;
       gap: 0.35rem;
       padding: 0.6rem 0.85rem;
       border-radius: 40px;
-      background: var(--primary);
-      color: #fff;
+      background: #fff;
+      color: var(--primary);
       font-weight: 600;
       cursor: pointer;
-      box-shadow: 0 4px 10px rgba(255, 122, 172, 0.28);
-      border: none;
-      transition: transform 0.18s ease, box-shadow 0.18s ease;
+      box-shadow: 0 4px 10px rgba(255, 122, 172, 0.25);
+      border: 2px solid #fff;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
       font-size: 0.95rem;
     }
 
-    .lang-toggle:hover { transform: translateY(-2px); box-shadow: 0 6px 14px rgba(255,122,172,0.32); }
+    .lang-toggle:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 14px rgba(255, 122, 172, 0.35);
+    }
 
-    .lang-flag { font-size: 1.05rem; line-height: 1; }
+    .lang-flag {
+      font-size: 1.1rem;
+      line-height: 1;
+    }
 
     main {
       max-width: 900px;
       background: var(--card-bg);
-      margin: 1.75rem auto;
-      padding: 1.75rem;
+      margin: 2rem auto;
+      padding: 2rem;
       border-radius: 14px;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     }
 
     h2 {
       color: var(--primary);
-      margin-top: 1.25rem;
+      margin-top: 1.5rem;
       margin-bottom: 0.5rem;
     }
 
     ul, ol {
-      margin-top: 0.6rem;
+      margin-top: 0.75rem;
       margin-left: 1.2rem;
     }
 
-    li { margin-bottom: 0.45rem; }
-    li::marker { color: var(--primary); font-weight: bold; }
+    li {
+      margin-bottom: 0.5rem;
+    }
+
+    li::marker {
+      color: var(--primary);
+      font-weight: bold;
+    }
 
     .split {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      gap: 1.5rem;
+      gap: 2rem;
       margin-top: 1.5rem;
     }
 
@@ -113,7 +122,10 @@
       object-fit: cover;
     }
 
-    .split .content { flex: 1; min-width: 260px; }
+    .split .content {
+      flex: 1;
+      min-width: 260px;
+    }
 
     .cta {
       display: inline-block;
@@ -152,8 +164,8 @@
 
     @media (max-width: 700px) {
       .split { flex-direction: column; }
-      header h1 { font-size: 1.25rem; }
-      main { margin: 0.75rem; padding: 1rem; }
+      header h1 { font-size: 1.3rem; }
+      main { margin: 1rem; padding: 1.25rem; }
       .lang-toggle { font-size: 0.9rem; padding: 0.5rem 0.7rem; }
     }
   </style>
@@ -161,17 +173,13 @@
 
 <body>
   <header>
-    <div class="title-row">
-      <div style="text-align:center;">
-        <h1>Learn a Language Online with a Preply Tutor</h1>
-        <p>Get a 30% discount if you sign up through this page!</p>
-      </div>
+    <button id="langToggle" class="lang-toggle" aria-label="Switch language" title="Switch language">
+      <span class="lang-flag" id="flagIcon">🇬🇧</span>
+      <span id="langLabel">EN</span>
+    </button>
 
-      <button id="langToggle" class="lang-toggle" aria-label="Switch language" title="Switch language">
-        <span class="lang-flag" id="flagIcon">🇬🇧</span>
-        <span id="langLabel">EN</span>
-      </button>
-    </div>
+    <h1>Learn a Language Online with a Preply Tutor</h1>
+    <p>Get a 30% discount if you sign up through this page!</p>
   </header>
 
   <main>
@@ -192,6 +200,17 @@
       </section>
 
       <section>
+        <h2>Top 5 Reasons People Learn on Preply</h2>
+        <ul>
+          <li>To improve speaking fluency for travel or relocation</li>
+          <li>To prepare for international exams like IELTS or TOEFL</li>
+          <li>To advance their career through better communication</li>
+          <li>To connect more easily with people from other cultures</li>
+          <li>To stay consistent with personalized, motivating tutors</li>
+        </ul>
+      </section>
+
+      <section>
         <h2>How It Works</h2>
         <ol>
           <li>Click the button below to visit Preply.</li>
@@ -201,9 +220,9 @@
       </section>
 
       <div class="center">
-        <a class="cta" id="ctaButton"
+        <a class="cta"
            href="https://preply.com/en/?pref=MjE5Mjc2MA==&id=1761352777.480834&ep=w1&utm_source=google&utm_medium=cpc&utm_campaign=student_referral&utm_term={keyword}"
-           target="_blank" rel="noopener" aria-label="Go to Preply and get your 30% discount">
+           target="_blank" rel="noopener">
            Get Your 30% Discount
         </a>
       </div>
@@ -232,6 +251,17 @@
       </section>
 
       <section>
+        <h2>İnsanların Preply’de Ders Almasının En İyi 5 Nedeni</h2>
+        <ul>
+          <li>Yurt dışına taşınmak veya seyahat etmek için akıcı konuşma becerilerini geliştirmek</li>
+          <li>IELTS veya TOEFL gibi uluslararası sınavlara hazırlanmak</li>
+          <li>Kariyerinde ilerlemek ve iletişim becerilerini güçlendirmek</li>
+          <li>Farklı kültürlerden insanlarla daha kolay iletişim kurmak</li>
+          <li>Motivasyon sağlayan özel eğitmenlerle düzenli olarak öğrenmek</li>
+        </ul>
+      </section>
+
+      <section>
         <h2>Nasıl İşliyor?</h2>
         <ol>
           <li>Aşağıdaki butona tıklayarak Preply’ye gidin.</li>
@@ -243,7 +273,7 @@
       <div class="center">
         <a class="cta"
            href="https://preply.com/en/?pref=MjE5Mjc2MA==&id=1761352777.480834&ep=w1&utm_source=google&utm_medium=cpc&utm_campaign=student_referral&utm_term={keyword}"
-           target="_blank" rel="noopener" aria-label="Preply sitesine gidin ve %30 indirim kazanın">
+           target="_blank" rel="noopener">
            %30 İndirim Kazanın
         </a>
       </div>
@@ -255,11 +285,6 @@
       </footer>
     </div>
   </main>
-
-  <noscript>
-    <style>.lang-tr {display:none !important;}</style>
-    <p style="text-align:center; padding:1rem;">Enable JavaScript to switch languages.</p>
-  </noscript>
 
   <script>
     (function () {
@@ -273,8 +298,6 @@
       function showEnglish() {
         enContent.classList.add('active');
         trContent.classList.remove('active');
-        trContent.setAttribute('aria-hidden', 'true');
-        enContent.setAttribute('aria-hidden', 'false');
         flagIcon.textContent = '🇬🇧';
         langLabel.textContent = 'EN';
         current = 'en';
@@ -283,43 +306,27 @@
       function showTurkish() {
         trContent.classList.add('active');
         enContent.classList.remove('active');
-        enContent.setAttribute('aria-hidden', 'true');
-        trContent.setAttribute('aria-hidden', 'false');
         flagIcon.textContent = '🇹🇷';
         langLabel.textContent = 'TR';
         current = 'tr';
       }
 
-      toggleBtn.addEventListener('click', function () {
+      toggleBtn.addEventListener('click', () => {
         if (current === 'en') showTurkish();
         else showEnglish();
         try { localStorage.setItem('pref-lang', current); } catch (e) {}
-      });
-
-      toggleBtn.addEventListener('keydown', function (e) {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          toggleBtn.click();
-        }
       });
 
       try {
         const saved = localStorage.getItem('pref-lang');
         if (saved === 'tr') showTurkish();
         else showEnglish();
-      } catch (err) {
+      } catch {
         showEnglish();
-      }
-
-      // Optional GA4 tracking
-      const ctaButton = document.getElementById('ctaButton');
-      if (ctaButton) {
-        ctaButton.addEventListener('click', () => {
-          if (window.gtag) {
-            gtag('event', 'cta_click', { 'event_category': 'engagement', 'event_label': 'Referral CTA' });
-          }
-        });
       }
     })();
   </script>
 </body>
+</html>
+
+

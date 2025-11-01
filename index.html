@@ -14,6 +14,7 @@
       --text: #333;
       --background: #FAFAFA;
       --card-bg: #FFF;
+      --gray: #777;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -31,26 +32,36 @@
       position: relative;
     }
 
+    /* Language toggle button container */
     .lang-toggle {
       position: absolute;
       top: 15px;
       right: 20px;
       background: #fff;
-      color: var(--secondary);
       border: 2px solid var(--secondary);
       border-radius: 40px;
       font-weight: 600;
       cursor: pointer;
-      padding: 0.6rem 1rem;
+      padding: 0.6rem 1.2rem;
       box-shadow: 0 3px 10px rgba(255, 122, 172, 0.25);
       transition: all 0.25s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.95rem;
     }
 
     .lang-toggle:hover {
-      background: var(--secondary);
-      color: #fff;
-      transform: translateY(-2px);
       box-shadow: 0 5px 14px rgba(255, 122, 172, 0.35);
+      transform: translateY(-2px);
+    }
+
+    .lang-active {
+      color: var(--primary);
+    }
+
+    .lang-inactive {
+      color: var(--gray);
     }
 
     main {
@@ -88,8 +99,9 @@
 
     h2 {
       color: var(--primary);
-      margin-top: 1.5rem;
-      margin-bottom: 0.5rem;
+      margin-top: 1.75rem;
+      margin-bottom: 0.75rem;
+      font-size: 1.4rem;
     }
 
     ul, ol {
@@ -106,7 +118,6 @@
       font-weight: bold;
     }
 
-    /* CTA button styling */
     .cta {
       display: inline-flex;
       align-items: center;
@@ -135,9 +146,7 @@
         0 0 0 4px rgba(255, 122, 172, 0.2);
     }
 
-    .cta:active {
-      transform: translateY(0);
-    }
+    .cta:active { transform: translateY(0); }
 
     .center { text-align: center; }
 
@@ -170,7 +179,8 @@
 <body>
   <header>
     <button id="langToggle" class="lang-toggle" aria-label="Switch language" title="Switch language">
-      English | Türkçe
+      <span id="enLabel" class="lang-active">English</span> |
+      <span id="trLabel" class="lang-inactive">Türkçe</span>
     </button>
   </header>
 
@@ -188,7 +198,7 @@
             <li>Enjoy secure payments, trusted support, and full flexibility</li>
           </ul>
 
-          <h2>What You’ll Learn with a Preply Tutor</h2>
+          <h2>What You’ll Learn with Your Preply Language Tutor</h2>
           <ul>
             <li>Speak naturally and confidently with real native speakers</li>
             <li>Master vocabulary and grammar you’ll actually use in daily life</li>
@@ -241,7 +251,7 @@
             <li>Güvenli ödeme sistemi ve profesyonel destekle içiniz rahat olsun</li>
           </ul>
 
-          <h2>Preply Eğitmeniyle Neler Öğreneceksiniz</h2>
+          <h2>Preply Dil Eğitmeninizle Neler Öğreneceksiniz</h2>
           <ul>
             <li>Anadili İngilizce olan kişilerle doğal ve özgüvenli konuşmayı öğrenin</li>
             <li>Günlük hayatta kullanabileceğiniz kelime ve dilbilgisini geliştirin</li>
@@ -287,19 +297,27 @@
       const toggleBtn = document.getElementById('langToggle');
       const enContent = document.getElementById('enContent');
       const trContent = document.getElementById('trContent');
+      const enLabel = document.getElementById('enLabel');
+      const trLabel = document.getElementById('trLabel');
       let current = 'en';
 
       function showEnglish() {
         enContent.classList.add('active');
         trContent.classList.remove('active');
-        toggleBtn.textContent = 'English | Türkçe';
+        enLabel.classList.add('lang-active');
+        trLabel.classList.remove('lang-active');
+        enLabel.classList.remove('lang-inactive');
+        trLabel.classList.add('lang-inactive');
         current = 'en';
       }
 
       function showTurkish() {
         trContent.classList.add('active');
         enContent.classList.remove('active');
-        toggleBtn.textContent = 'Türkçe | English';
+        trLabel.classList.add('lang-active');
+        enLabel.classList.remove('lang-active');
+        trLabel.classList.remove('lang-inactive');
+        enLabel.classList.add('lang-inactive');
         current = 'tr';
       }
 

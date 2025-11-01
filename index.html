@@ -52,10 +52,10 @@
       transform: translateY(-2px);
       background: var(--secondary);
       color: #fff;
-      border-color: #fff; /* Keeps visible edge */
-      box-shadow: 
+      border-color: #fff;
+      box-shadow:
         0 5px 14px rgba(59, 179, 189, 0.45),
-        0 0 0 2px rgba(255, 255, 255, 0.8); /* Soft white glow for visibility */
+        0 0 0 2px rgba(255, 255, 255, 0.8); /* White glow */
     }
 
     main {
@@ -127,6 +127,11 @@
     .cta:hover {
       background: linear-gradient(45deg, #ff8fba, #ff6fa4);
       transform: translateY(-2px);
+      box-shadow:
+        0 6px 14px rgba(255, 122, 172, 0.45),
+        0 0 0 2px rgba(255, 255, 255, 0.9),
+        0 0 0 4px rgba(59, 179, 189, 0.25); /* Pink glow + subtle teal ring */
+      border: none;
     }
 
     .center { text-align: center; }

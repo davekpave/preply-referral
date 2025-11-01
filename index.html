@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Learn a language online with a Preply tutor and get 30% off your first lesson (new students only; conditions apply). Take 1-on-1 lessons, choose your budget, and enjoy flexible online learning." />
+  <meta name="description" content="Learn a language online with a Preply tutor and get 30% off your first lesson. Take 1-on-1 lessons, choose your budget, and start learning confidently." />
   <title>Learn Languages Online with a Preply Tutor</title>
   <link rel="preload" as="image" href="study.png" />
 
@@ -58,7 +58,6 @@
       overflow: hidden;
     }
 
-    /* Light sweep animation */
     .button::before, .cta::before {
       content: "";
       position: absolute;
@@ -76,9 +75,7 @@
       transition: left 0.6s ease;
     }
 
-    .button:hover::before, .cta:hover::before {
-      left: 125%;
-    }
+    .button:hover::before, .cta:hover::before { left: 125%; }
 
     .button:hover, .cta:hover {
       background: linear-gradient(45deg, var(--primary), var(--primary-dark));
@@ -103,7 +100,7 @@
         0 0 0 6px rgba(59, 179, 189, 0.5);
     }
 
-    /* Language Toggle (top-right) */
+    /* Language Toggle */
     #langToggle {
       position: absolute;
       top: 15px;
@@ -178,6 +175,20 @@
       font-weight: bold;
     }
 
+    .cta {
+      display: inline-block;
+      margin: 3rem auto 0.5rem;
+      background: var(--primary);
+      color: white;
+      padding: 1rem 2rem;
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 50px;
+      border: 2px solid var(--primary);
+      transition: all 0.25s ease;
+      box-shadow: 0 6px 16px rgba(59, 179, 189, 0.18);
+    }
+
     .center { text-align: center; }
 
     footer {
@@ -221,25 +232,26 @@
   </header>
 
   <main>
+    <!-- English -->
     <div class="lang lang-en active" id="enContent" lang="en">
       <section class="split">
         <div class="content">
-          <h2>Why Learn with Preply?</h2>
+          <h2>Why Thousands of Students Choose Preply</h2>
           <ul>
             <li>Take 1-on-1 lessons with experienced tutors from around the world</li>
             <li>Choose your budget and a schedule that fits your lifestyle</li>
-            <li>Learn more than 30 languages — from English to Ukrainian</li>
+            <li>Learn over 30 languages — from English to Ukrainian</li>
             <li>Enjoy interactive lessons from home or anywhere</li>
             <li>Benefit from secure payments and trusted support</li>
           </ul>
 
-          <h2>What Do Preply Language Students Learn?</h2>
+          <h2>What You’ll Learn with a Preply Tutor</h2>
           <ul>
-            <li>To speak naturally and confidently with native speakers</li>
-            <li>Practical vocabulary and grammar for real-life conversations</li>
-            <li>Listening and pronunciation skills through guided practice</li>
-            <li>Writing and reading for work, study, or exams</li>
-            <li>Study habits and learning strategies for long-term fluency</li>
+            <li>Speak naturally and confidently with native speakers</li>
+            <li>Use practical vocabulary and grammar for real-life conversations</li>
+            <li>Improve listening and pronunciation through guided practice</li>
+            <li>Develop writing and reading skills for work, study, or exams</li>
+            <li>Build lasting study habits and strategies for fluency</li>
           </ul>
         </div>
 
@@ -247,7 +259,7 @@
       </section>
 
       <section>
-        <h2>How do I get my discounted first language lesson?</h2>
+        <h2>How to Get Your 30% Discount and Start Learning</h2>
         <ol>
           <li>Click the button below to visit Preply.</li>
           <li>Select the language you want to learn and find your tutor.</li>
@@ -273,10 +285,11 @@
       </footer>
     </div>
 
+    <!-- Turkish -->
     <div class="lang lang-tr" id="trContent" lang="tr" aria-hidden="true">
       <section class="split">
         <div class="content">
-          <h2>Neden Preply’yi Seçmelisiniz?</h2>
+          <h2>Binlerce Öğrenci Neden Preply’yi Seçiyor</h2>
           <ul>
             <li>Dünyanın dört bir yanından deneyimli eğitmenlerle bire bir dersler alın</li>
             <li>Bütçenizi belirleyin ve yaşam tarzınıza uygun bir program seçin</li>
@@ -285,7 +298,7 @@
             <li>Güvenli ödeme seçenekleri ve destek hizmetinden yararlanın</li>
           </ul>
 
-          <h2>Preply’deki Dil Öğrencileri Ne Öğrenir?</h2>
+          <h2>Preply Eğitmeniyle Neler Öğreneceksiniz</h2>
           <ul>
             <li>Anadili İngilizce olan kişilerle doğal ve özgüvenli konuşma becerisi</li>
             <li>Gerçek yaşam konuşmaları için pratik kelime ve dilbilgisi</li>
@@ -299,7 +312,7 @@
       </section>
 
       <section>
-        <h2>İlk indirimli dil dersimi nasıl alırım?</h2>
+        <h2>%30 İndiriminizi Alıp Öğrenmeye Nasıl Başlarsınız</h2>
         <ol>
           <li>Aşağıdaki butona tıklayarak Preply’ye gidin.</li>
           <li>Öğrenmek istediğiniz dili seçin ve size uygun eğitmeni bulun.</li>

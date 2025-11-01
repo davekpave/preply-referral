@@ -9,9 +9,9 @@
 
   <style>
     :root {
-      --primary: #3BB3BD;       /* Teal — now primary (buttons, headings) */
-      --primary-dark: #32a1a9;  /* slightly darker teal for hover */
-      --accent: #FF7AAC;        /* Pink — secondary highlight */
+      --primary: #3BB3BD;       /* Teal — primary */
+      --primary-dark: #32a1a9;
+      --accent: #FF7AAC;        /* Pink — secondary */
       --text: #333;
       --background: #FAFAFA;
       --card-bg: #FFF;
@@ -26,42 +26,103 @@
       line-height: 1.6;
     }
 
-    /* subtle teal header (light, not overpowering) */
     header {
       background: linear-gradient(180deg, rgba(59,179,189,0.12), rgba(59,179,189,0.06));
       height: 70px;
       position: relative;
     }
 
-    /* unified button shape — color set via modifiers */
-    .button {
-      position: absolute;
-      top: 15px;
-      right: 20px;
+    /* ===== Unified Button System ===== */
+    .button, .cta {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 0.5rem;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      padding: 0.9rem 2rem;
+      text-decoration: none;
+      box-shadow:
+        0 4px 12px rgba(59, 179, 189, 0.25),
+        0 0 0 2px rgba(255, 255, 255, 0.7) inset;
+      transition:
+        background 0.3s ease,
+        box-shadow 0.3s ease,
+        transform 0.2s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Light sweep animation */
+    .button::before, .cta::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -75%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(
+        120deg,
+        rgba(255,255,255,0) 0%,
+        rgba(255,255,255,0.4) 50%,
+        rgba(255,255,255,0) 100%
+      );
+      transform: skewX(-25deg);
+      transition: left 0.6s ease;
+    }
+
+    .button:hover::before, .cta:hover::before {
+      left: 125%;
+    }
+
+    .button:hover, .cta:hover {
+      background: linear-gradient(45deg, var(--primary), var(--primary-dark));
+      transform: translateY(-2px);
+      box-shadow:
+        0 8px 18px rgba(59, 179, 189, 0.4),
+        0 0 0 2px rgba(255,255,255,0.8),
+        0 0 0 4px rgba(255, 122, 172, 0.15);
+    }
+
+    .button:active, .cta:active {
+      transform: translateY(0);
+      box-shadow:
+        0 2px 6px rgba(59, 179, 189, 0.4) inset,
+        0 0 0 2px rgba(255,255,255,0.9);
+    }
+
+    .button:focus-visible, .cta:focus-visible {
+      outline: none;
+      box-shadow:
+        0 0 0 4px rgba(255,255,255,0.9),
+        0 0 0 6px rgba(59, 179, 189, 0.5);
+    }
+
+    /* Language Toggle (top-right) */
+    #langToggle {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      padding: 0.55rem 1.2rem;
+      font-size: 0.95rem;
       background: #fff;
       color: var(--primary);
       border: 2px solid var(--primary);
-      border-radius: 40px;
-      font-weight: 600;
-      cursor: pointer;
-      padding: 0.5rem 1rem;
-      box-shadow: 0 3px 10px rgba(59, 179, 189, 0.18);
-      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.22s ease, color 0.22s ease, border 0.22s ease;
-      text-decoration: none;
+      box-shadow: 0 3px 10px rgba(59,179,189,0.18);
     }
 
-    .button:hover {
-      transform: translateY(-2px);
+    #langToggle:hover {
       background: var(--primary);
       color: #fff;
       border-color: #fff;
       box-shadow:
-        0 6px 18px rgba(59, 179, 189, 0.35),
-        0 0 0 2px rgba(255,255,255,0.9); /* white glow for contrast */
+        0 6px 18px rgba(59,179,189,0.35),
+        0 0 0 2px rgba(255,255,255,0.8);
     }
 
     main {
@@ -97,7 +158,6 @@
       order: 2;
     }
 
-    /* Headings in teal (primary) */
     h2 {
       color: var(--primary);
       margin-top: 1.5rem;
@@ -113,35 +173,9 @@
       margin-bottom: 0.5rem;
     }
 
-    /* pink bullets as subtle accent */
     li::marker {
       color: var(--accent);
       font-weight: bold;
-    }
-
-    /* CTA styled the same way as the toggle but using teal as primary fill */
-    .cta {
-      display: inline-block;
-      margin: 2rem auto 1rem;
-      background: var(--primary);
-      color: white;
-      padding: 1rem 2rem;
-      text-decoration: none;
-      font-weight: 600;
-      border-radius: 50px;
-      transition: all 0.25s ease;
-      border: 2px solid var(--primary);
-      box-shadow: 0 6px 16px rgba(59, 179, 189, 0.18);
-    }
-
-    .cta:hover {
-      background: linear-gradient(45deg, var(--primary), var(--primary-dark));
-      transform: translateY(-2px);
-      box-shadow:
-        0 10px 24px rgba(59, 179, 189, 0.32),
-        0 0 0 2px rgba(255,255,255,0.9),
-        0 0 0 4px rgba(255, 122, 172, 0.12); /* subtle pink halo to tie palette */
-      border-color: #fff;
     }
 
     .center { text-align: center; }
@@ -160,6 +194,7 @@
       color: var(--primary);
       text-decoration: none;
     }
+
     footer a:hover {
       color: var(--accent);
       text-decoration: underline;
@@ -171,23 +206,21 @@
     @media (max-width: 700px) {
       .split { flex-direction: column; }
       main { margin: 1rem; padding: 1.25rem; }
-      .button { top: 12px; right: 14px; padding: 0.45rem 0.9rem; font-size: 0.95rem; }
+      #langToggle { top: 12px; right: 14px; padding: 0.5rem 0.9rem; font-size: 0.9rem; }
       .split img { order: 1; }
       .split .content { order: 2; }
     }
-
   </style>
 </head>
+
 <body>
   <header>
-    <!-- unified toggle (same shape as CTA; teal primary) -->
     <button id="langToggle" class="button" aria-label="Switch language" title="Switch language">
       English | Türkçe
     </button>
   </header>
 
   <main>
-    <!-- English -->
     <div class="lang lang-en active" id="enContent" lang="en">
       <section class="split">
         <div class="content">
@@ -233,12 +266,13 @@
       <footer>
         <p><em>Note:</em> If you book your first lesson through this page, I may earn a small referral reward — and you’ll get 30% off the lesson.<br><br>
         This page is independently created and not affiliated with Preply.<br>
-        You can visit the official website at <a href="https://preply.com" target="_blank" rel="noopener">preply.com</a>, but the discount is only available through this page.</p>
+        You can visit the official website at 
+        <a href="https://preply.com" target="_blank" rel="noopener">preply.com</a>, 
+        but the discount is only available through this page.</p>
         <p>© 2025 davekpave • Tutor Dave B.</p>
       </footer>
     </div>
 
-    <!-- Turkish -->
     <div class="lang lang-tr" id="trContent" lang="tr" aria-hidden="true">
       <section class="split">
         <div class="content">
@@ -284,7 +318,9 @@
       <footer>
         <p><em>Not:</em> Bu sayfa üzerinden ilk dersinizi ayırtırsanız, küçük bir yönlendirme ödülü kazanabilirim — ve siz derste %30 indirim kazanırsınız.<br><br>
         Bu sayfa bağımsız olarak oluşturulmuştur ve Preply ile bağlantılı değildir.<br>
-        Resmî web sitesine <a href="https://preply.com" target="_blank" rel="noopener">preply.com</a> adresinden ulaşabilirsiniz, ancak indirim yalnızca bu sayfa üzerinden geçerlidir.</p>
+        Resmî web sitesine 
+        <a href="https://preply.com" target="_blank" rel="noopener">preply.com</a> 
+        adresinden ulaşabilirsiniz, ancak indirim yalnızca bu sayfa üzerinden geçerlidir.</p>
         <p>© 2025 davekpave • Tutor Dave B.</p>
       </footer>
     </div>

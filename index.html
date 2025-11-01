@@ -12,7 +12,7 @@
     :root {
       --primary: #FF7AAC;       /* Preply pink */
       --secondary: #3BB3BD;     /* Preply teal */
-      --primary-dark: #ff6fa4;
+      --secondary-dark: #32a1a9;
       --text: #333;
       --background: #FAFAFA;
       --card-bg: #FFF;
@@ -28,7 +28,7 @@
     }
 
     header {
-      background: var(--secondary);
+      background: var(--primary);
       height: 70px;
       position: relative;
     }
@@ -38,24 +38,24 @@
       top: 15px;
       right: 20px;
       background: #fff;
-      color: var(--secondary);
-      border: 2px solid var(--secondary);
+      color: var(--primary);
+      border: 2px solid var(--primary);
       border-radius: 40px;
       font-weight: 600;
       cursor: pointer;
       padding: 0.5rem 1rem;
-      box-shadow: 0 3px 10px rgba(59, 179, 189, 0.25);
+      box-shadow: 0 3px 10px rgba(255, 122, 172, 0.25);
       transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.3s ease, color 0.3s ease, border 0.3s ease;
     }
 
     .lang-toggle:hover {
       transform: translateY(-2px);
-      background: var(--secondary);
+      background: var(--primary);
       color: #fff;
       border-color: #fff;
       box-shadow:
-        0 5px 14px rgba(59, 179, 189, 0.45),
-        0 0 0 2px rgba(255, 255, 255, 0.8); /* White glow */
+        0 5px 14px rgba(255, 122, 172, 0.45),
+        0 0 0 2px rgba(255, 255, 255, 0.8);
     }
 
     main {
@@ -92,7 +92,7 @@
     }
 
     h2 {
-      color: var(--secondary);
+      color: var(--primary);
       margin-top: 1.5rem;
       margin-bottom: 0.5rem;
     }
@@ -107,31 +107,33 @@
     }
 
     li::marker {
-      color: var(--secondary);
+      color: var(--primary);
       font-weight: bold;
     }
 
+    /* --- Teal CTA Button --- */
     .cta {
       display: inline-block;
       margin: 2rem auto 1rem;
-      background: var(--primary);
+      background: var(--secondary);
       color: white;
       padding: 1rem 2rem;
       text-decoration: none;
       font-weight: 600;
       border-radius: 50px;
       transition: all 0.3s ease;
-      box-shadow: 0 4px 10px rgba(255, 122, 172, 0.3);
+      border: 2px solid var(--secondary);
+      box-shadow: 0 4px 10px rgba(59, 179, 189, 0.3);
     }
 
     .cta:hover {
-      background: linear-gradient(45deg, #ff8fba, #ff6fa4);
+      background: linear-gradient(45deg, var(--secondary), var(--secondary-dark));
       transform: translateY(-2px);
       box-shadow:
-        0 6px 14px rgba(255, 122, 172, 0.45),
+        0 6px 14px rgba(59, 179, 189, 0.45),
         0 0 0 2px rgba(255, 255, 255, 0.9),
-        0 0 0 4px rgba(59, 179, 189, 0.25); /* Pink glow + subtle teal ring */
-      border: none;
+        0 0 0 4px rgba(255, 122, 172, 0.25); /* teal glow + subtle pink ring */
+      border-color: #fff;
     }
 
     .center { text-align: center; }

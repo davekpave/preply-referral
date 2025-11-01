@@ -3,15 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Learn a language online with a Preply tutor and get 30% off your first lesson. Take 1-on-1 lessons, choose your budget, and start learning confidently." />
-  <title>Learn Languages Online with a Preply Tutor</title>
+  <meta name="description" content="Learn a language online with a Preply tutor and get 30% off your first lesson. Choose your budget, enjoy flexible 1-on-1 lessons, and start speaking confidently." />
+  <title>Learn Languages Online with a Preply Tutor | Preply ile %30 İndirimle Dil Öğrenin</title>
   <link rel="preload" as="image" href="study.png" />
 
   <style>
     :root {
-      --primary: #3BB3BD;       /* Teal — primary */
-      --primary-dark: #32a1a9;
-      --accent: #FF7AAC;        /* Pink — secondary */
+      --primary: #3BB3BD; /* Teal accent */
+      --secondary: #FF7AAC; /* Preply pink */
       --text: #333;
       --background: #FAFAFA;
       --card-bg: #FFF;
@@ -27,99 +26,31 @@
     }
 
     header {
-      background: linear-gradient(180deg, rgba(59,179,189,0.12), rgba(59,179,189,0.06));
+      background: var(--secondary);
       height: 70px;
       position: relative;
     }
 
-    /* ===== Unified Button System ===== */
-    .button, .cta {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      background: var(--primary);
-      color: #fff;
-      border: none;
-      border-radius: 40px;
-      font-weight: 600;
-      font-size: 1rem;
-      cursor: pointer;
-      padding: 0.9rem 2rem;
-      text-decoration: none;
-      box-shadow:
-        0 4px 12px rgba(59, 179, 189, 0.25),
-        0 0 0 2px rgba(255, 255, 255, 0.7) inset;
-      transition:
-        background 0.3s ease,
-        box-shadow 0.3s ease,
-        transform 0.2s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .button::before, .cta::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: -75%;
-      width: 50%;
-      height: 100%;
-      background: linear-gradient(
-        120deg,
-        rgba(255,255,255,0) 0%,
-        rgba(255,255,255,0.4) 50%,
-        rgba(255,255,255,0) 100%
-      );
-      transform: skewX(-25deg);
-      transition: left 0.6s ease;
-    }
-
-    .button:hover::before, .cta:hover::before { left: 125%; }
-
-    .button:hover, .cta:hover {
-      background: linear-gradient(45deg, var(--primary), var(--primary-dark));
-      transform: translateY(-2px);
-      box-shadow:
-        0 8px 18px rgba(59, 179, 189, 0.4),
-        0 0 0 2px rgba(255,255,255,0.8),
-        0 0 0 4px rgba(255, 122, 172, 0.15);
-    }
-
-    .button:active, .cta:active {
-      transform: translateY(0);
-      box-shadow:
-        0 2px 6px rgba(59, 179, 189, 0.4) inset,
-        0 0 0 2px rgba(255,255,255,0.9);
-    }
-
-    .button:focus-visible, .cta:focus-visible {
-      outline: none;
-      box-shadow:
-        0 0 0 4px rgba(255,255,255,0.9),
-        0 0 0 6px rgba(59, 179, 189, 0.5);
-    }
-
-    /* Language Toggle */
-    #langToggle {
+    .lang-toggle {
       position: absolute;
       top: 15px;
       right: 20px;
-      padding: 0.55rem 1.2rem;
-      font-size: 0.95rem;
       background: #fff;
-      color: var(--primary);
-      border: 2px solid var(--primary);
-      box-shadow: 0 3px 10px rgba(59,179,189,0.18);
+      color: var(--secondary);
+      border: 2px solid var(--secondary);
+      border-radius: 40px;
+      font-weight: 600;
+      cursor: pointer;
+      padding: 0.6rem 1rem;
+      box-shadow: 0 3px 10px rgba(255, 122, 172, 0.25);
+      transition: all 0.25s ease;
     }
 
-    #langToggle:hover {
-      background: var(--primary);
+    .lang-toggle:hover {
+      background: var(--secondary);
       color: #fff;
-      border-color: #fff;
-      box-shadow:
-        0 6px 18px rgba(59,179,189,0.35),
-        0 0 0 2px rgba(255,255,255,0.8);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 14px rgba(255, 122, 172, 0.35);
     }
 
     main {
@@ -128,7 +59,7 @@
       margin: 2rem auto;
       padding: 2rem;
       border-radius: 14px;
-      box-shadow: 0 6px 30px rgba(0, 0, 0, 0.06);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     }
 
     .split {
@@ -150,7 +81,7 @@
       min-width: 260px;
       width: 100%;
       border-radius: 12px;
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
       object-fit: cover;
       order: 2;
     }
@@ -171,22 +102,41 @@
     }
 
     li::marker {
-      color: var(--accent);
+      color: var(--secondary);
       font-weight: bold;
     }
 
+    /* CTA button styling */
     .cta {
-      display: inline-block;
-      margin: 3rem auto 0.5rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin: 3rem auto 1.5rem;
       background: var(--primary);
       color: white;
       padding: 1rem 2rem;
       text-decoration: none;
       font-weight: 600;
       border-radius: 50px;
-      border: 2px solid var(--primary);
-      transition: all 0.25s ease;
-      box-shadow: 0 6px 16px rgba(59, 179, 189, 0.18);
+      transition: all 0.3s ease;
+      border: none;
+      box-shadow:
+        0 6px 14px rgba(59, 179, 189, 0.3),
+        0 0 0 2px rgba(255, 255, 255, 0.9);
+      cursor: pointer;
+    }
+
+    .cta:hover {
+      background: linear-gradient(45deg, var(--primary), var(--secondary));
+      transform: translateY(-2px);
+      box-shadow:
+        0 8px 18px rgba(59, 179, 189, 0.4),
+        0 0 0 2px rgba(255,255,255,0.8),
+        0 0 0 4px rgba(255, 122, 172, 0.2);
+    }
+
+    .cta:active {
+      transform: translateY(0);
     }
 
     .center { text-align: center; }
@@ -201,15 +151,8 @@
       line-height: 1.7;
     }
 
-    footer a {
-      color: var(--primary);
-      text-decoration: none;
-    }
-
-    footer a:hover {
-      color: var(--accent);
-      text-decoration: underline;
-    }
+    footer a { color: var(--primary); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
 
     .lang { display: none; }
     .lang.active { display: block; }
@@ -217,7 +160,7 @@
     @media (max-width: 700px) {
       .split { flex-direction: column; }
       main { margin: 1rem; padding: 1.25rem; }
-      #langToggle { top: 12px; right: 14px; padding: 0.5rem 0.9rem; font-size: 0.9rem; }
+      .lang-toggle { font-size: 0.9rem; padding: 0.5rem 0.8rem; }
       .split img { order: 1; }
       .split .content { order: 2; }
     }
@@ -226,7 +169,7 @@
 
 <body>
   <header>
-    <button id="langToggle" class="button" aria-label="Switch language" title="Switch language">
+    <button id="langToggle" class="lang-toggle" aria-label="Switch language" title="Switch language">
       English | Türkçe
     </button>
   </header>
@@ -238,20 +181,20 @@
         <div class="content">
           <h2>Why Thousands of Students Choose Preply</h2>
           <ul>
-            <li>Take 1-on-1 lessons with experienced tutors from around the world</li>
-            <li>Choose your budget and a schedule that fits your lifestyle</li>
-            <li>Learn over 30 languages — from English to Ukrainian</li>
-            <li>Enjoy interactive lessons from home or anywhere</li>
-            <li>Benefit from secure payments and trusted support</li>
+            <li>Learn with experienced tutors from around the world, one-on-one</li>
+            <li>Choose a schedule and budget that fit your lifestyle</li>
+            <li>Access 30+ languages — from English to Japanese and beyond</li>
+            <li>Take engaging, interactive lessons from home or anywhere</li>
+            <li>Enjoy secure payments, trusted support, and full flexibility</li>
           </ul>
 
           <h2>What You’ll Learn with a Preply Tutor</h2>
           <ul>
-            <li>Speak naturally and confidently with native speakers</li>
-            <li>Use practical vocabulary and grammar for real-life conversations</li>
-            <li>Improve listening and pronunciation through guided practice</li>
-            <li>Develop writing and reading skills for work, study, or exams</li>
-            <li>Build lasting study habits and strategies for fluency</li>
+            <li>Speak naturally and confidently with real native speakers</li>
+            <li>Master vocabulary and grammar you’ll actually use in daily life</li>
+            <li>Sharpen your listening and pronunciation through guided practice</li>
+            <li>Strengthen your writing and reading for work, study, or exams</li>
+            <li>Build consistent study habits for long-term fluency and success</li>
           </ul>
         </div>
 
@@ -262,8 +205,8 @@
         <h2>How to Get Your 30% Discount and Start Learning</h2>
         <ol>
           <li>Click the button below to visit Preply.</li>
-          <li>Select the language you want to learn and find your tutor.</li>
-          <li>Book your first lesson and start learning right away!</li>
+          <li>Choose your language and find a tutor who fits your goals.</li>
+          <li>Book your first lesson and start learning right away — with 30% off!</li>
         </ol>
       </section>
 
@@ -289,22 +232,22 @@
     <div class="lang lang-tr" id="trContent" lang="tr" aria-hidden="true">
       <section class="split">
         <div class="content">
-          <h2>Binlerce Öğrenci Neden Preply’yi Seçiyor</h2>
+          <h2>Binlerce Öğrencinin Preply’yi Tercih Etme Nedeni</h2>
           <ul>
-            <li>Dünyanın dört bir yanından deneyimli eğitmenlerle bire bir dersler alın</li>
-            <li>Bütçenizi belirleyin ve yaşam tarzınıza uygun bir program seçin</li>
-            <li>İngilizce’den Ukraynaca’ya kadar 30’dan fazla dil öğrenin</li>
-            <li>Evde veya istediğiniz yerde etkileşimli derslerin keyfini çıkarın</li>
-            <li>Güvenli ödeme seçenekleri ve destek hizmetinden yararlanın</li>
+            <li>Dünyanın dört bir yanından deneyimli eğitmenlerle bire bir ders alın</li>
+            <li>Bütçenize ve yaşam tarzınıza uygun bir program oluşturun</li>
+            <li>İngilizce’den Japonca’ya kadar 30’dan fazla dili öğrenin</li>
+            <li>Evde, işte veya istediğiniz yerde etkileşimli derslerin tadını çıkarın</li>
+            <li>Güvenli ödeme sistemi ve profesyonel destekle içiniz rahat olsun</li>
           </ul>
 
           <h2>Preply Eğitmeniyle Neler Öğreneceksiniz</h2>
           <ul>
-            <li>Anadili İngilizce olan kişilerle doğal ve özgüvenli konuşma becerisi</li>
-            <li>Gerçek yaşam konuşmaları için pratik kelime ve dilbilgisi</li>
-            <li>Dinleme ve telaffuz becerilerini geliştirme</li>
-            <li>İş, eğitim veya sınavlar için yazma ve okuma becerileri</li>
-            <li>Uzun vadeli akıcılık için etkili çalışma alışkanlıkları</li>
+            <li>Anadili İngilizce olan kişilerle doğal ve özgüvenli konuşmayı öğrenin</li>
+            <li>Günlük hayatta kullanabileceğiniz kelime ve dilbilgisini geliştirin</li>
+            <li>Rehberli alıştırmalarla dinleme ve telaffuz becerilerinizi güçlendirin</li>
+            <li>İş, eğitim veya sınavlar için yazma ve okuma becerilerinizi ilerletin</li>
+            <li>Akıcılığı korumak için kalıcı çalışma alışkanlıkları edinin</li>
           </ul>
         </div>
 
@@ -312,11 +255,11 @@
       </section>
 
       <section>
-        <h2>%30 İndiriminizi Alıp Öğrenmeye Nasıl Başlarsınız</h2>
+        <h2>%30 İndiriminizi Alıp Hemen Öğrenmeye Başlayın</h2>
         <ol>
           <li>Aşağıdaki butona tıklayarak Preply’ye gidin.</li>
           <li>Öğrenmek istediğiniz dili seçin ve size uygun eğitmeni bulun.</li>
-          <li>İlk dersinizi ayırtın ve hemen öğrenmeye başlayın!</li>
+          <li>İlk dersinizi ayırtın ve %30 indirimle hemen öğrenmeye başlayın!</li>
         </ol>
       </section>
 
@@ -349,12 +292,14 @@
       function showEnglish() {
         enContent.classList.add('active');
         trContent.classList.remove('active');
+        toggleBtn.textContent = 'English | Türkçe';
         current = 'en';
       }
 
       function showTurkish() {
         trContent.classList.add('active');
         enContent.classList.remove('active');
+        toggleBtn.textContent = 'Türkçe | English';
         current = 'tr';
       }
 

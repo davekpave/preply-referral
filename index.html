@@ -4,15 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Learn a language online with a Preply tutor and get 30% off your first lesson (new students only; conditions apply). Take 1-on-1 lessons, choose your budget, and enjoy flexible online learning." />
-  <meta name="description" lang="tr" content="Preply eğitmeniyle çevrimiçi dil öğrenin ve ilk dersinizde %30 indirim kazanın (yalnızca yeni öğrenciler için; koşullar geçerlidir). Bütçenizi belirleyin ve esnek çevrimiçi öğrenmenin keyfini çıkarın." />
-  <title>Learn Languages Online with a Preply Tutor | Preply ile %30 İndirimle Dil Öğrenin</title>
+  <title>Learn Languages Online with a Preply Tutor</title>
   <link rel="preload" as="image" href="study.png" />
 
   <style>
     :root {
-      --primary: #FF7AAC;       /* Preply pink */
-      --secondary: #3BB3BD;     /* Preply teal */
-      --secondary-dark: #32a1a9;
+      --primary: #3BB3BD;       /* Teal — now primary (buttons, headings) */
+      --primary-dark: #32a1a9;  /* slightly darker teal for hover */
+      --accent: #FF7AAC;        /* Pink — secondary highlight */
       --text: #333;
       --background: #FAFAFA;
       --card-bg: #FFF;
@@ -27,16 +26,22 @@
       line-height: 1.6;
     }
 
+    /* subtle teal header (light, not overpowering) */
     header {
-      background: var(--primary);
+      background: linear-gradient(180deg, rgba(59,179,189,0.12), rgba(59,179,189,0.06));
       height: 70px;
       position: relative;
     }
 
-    .lang-toggle {
+    /* unified button shape — color set via modifiers */
+    .button {
       position: absolute;
       top: 15px;
       right: 20px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
       background: #fff;
       color: var(--primary);
       border: 2px solid var(--primary);
@@ -44,18 +49,19 @@
       font-weight: 600;
       cursor: pointer;
       padding: 0.5rem 1rem;
-      box-shadow: 0 3px 10px rgba(255, 122, 172, 0.25);
-      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.3s ease, color 0.3s ease, border 0.3s ease;
+      box-shadow: 0 3px 10px rgba(59, 179, 189, 0.18);
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.22s ease, color 0.22s ease, border 0.22s ease;
+      text-decoration: none;
     }
 
-    .lang-toggle:hover {
+    .button:hover {
       transform: translateY(-2px);
       background: var(--primary);
       color: #fff;
       border-color: #fff;
       box-shadow:
-        0 5px 14px rgba(255, 122, 172, 0.45),
-        0 0 0 2px rgba(255, 255, 255, 0.8);
+        0 6px 18px rgba(59, 179, 189, 0.35),
+        0 0 0 2px rgba(255,255,255,0.9); /* white glow for contrast */
     }
 
     main {
@@ -64,7 +70,7 @@
       margin: 2rem auto;
       padding: 2rem;
       border-radius: 14px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 6px 30px rgba(0, 0, 0, 0.06);
     }
 
     .split {
@@ -86,11 +92,12 @@
       min-width: 260px;
       width: 100%;
       border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
       object-fit: cover;
       order: 2;
     }
 
+    /* Headings in teal (primary) */
     h2 {
       color: var(--primary);
       margin-top: 1.5rem;
@@ -106,33 +113,34 @@
       margin-bottom: 0.5rem;
     }
 
+    /* pink bullets as subtle accent */
     li::marker {
-      color: var(--primary);
+      color: var(--accent);
       font-weight: bold;
     }
 
-    /* --- Teal CTA Button --- */
+    /* CTA styled the same way as the toggle but using teal as primary fill */
     .cta {
       display: inline-block;
       margin: 2rem auto 1rem;
-      background: var(--secondary);
+      background: var(--primary);
       color: white;
       padding: 1rem 2rem;
       text-decoration: none;
       font-weight: 600;
       border-radius: 50px;
-      transition: all 0.3s ease;
-      border: 2px solid var(--secondary);
-      box-shadow: 0 4px 10px rgba(59, 179, 189, 0.3);
+      transition: all 0.25s ease;
+      border: 2px solid var(--primary);
+      box-shadow: 0 6px 16px rgba(59, 179, 189, 0.18);
     }
 
     .cta:hover {
-      background: linear-gradient(45deg, var(--secondary), var(--secondary-dark));
+      background: linear-gradient(45deg, var(--primary), var(--primary-dark));
       transform: translateY(-2px);
       box-shadow:
-        0 6px 14px rgba(59, 179, 189, 0.45),
-        0 0 0 2px rgba(255, 255, 255, 0.9),
-        0 0 0 4px rgba(255, 122, 172, 0.25); /* teal glow + subtle pink ring */
+        0 10px 24px rgba(59, 179, 189, 0.32),
+        0 0 0 2px rgba(255,255,255,0.9),
+        0 0 0 4px rgba(255, 122, 172, 0.12); /* subtle pink halo to tie palette */
       border-color: #fff;
     }
 
@@ -149,12 +157,11 @@
     }
 
     footer a {
-      color: var(--secondary);
+      color: var(--primary);
       text-decoration: none;
     }
-
     footer a:hover {
-      color: var(--primary);
+      color: var(--accent);
       text-decoration: underline;
     }
 
@@ -164,16 +171,17 @@
     @media (max-width: 700px) {
       .split { flex-direction: column; }
       main { margin: 1rem; padding: 1.25rem; }
-      .lang-toggle { font-size: 0.9rem; padding: 0.5rem 0.8rem; }
+      .button { top: 12px; right: 14px; padding: 0.45rem 0.9rem; font-size: 0.95rem; }
       .split img { order: 1; }
       .split .content { order: 2; }
     }
+
   </style>
 </head>
-
 <body>
   <header>
-    <button id="langToggle" class="lang-toggle" aria-label="Switch language" title="Switch language">
+    <!-- unified toggle (same shape as CTA; teal primary) -->
+    <button id="langToggle" class="button" aria-label="Switch language" title="Switch language">
       English | Türkçe
     </button>
   </header>
@@ -225,9 +233,7 @@
       <footer>
         <p><em>Note:</em> If you book your first lesson through this page, I may earn a small referral reward — and you’ll get 30% off the lesson.<br><br>
         This page is independently created and not affiliated with Preply.<br>
-        You can visit the official website at 
-        <a href="https://preply.com" target="_blank" rel="noopener">preply.com</a>, 
-        but the discount is only available through this page.</p>
+        You can visit the official website at <a href="https://preply.com" target="_blank" rel="noopener">preply.com</a>, but the discount is only available through this page.</p>
         <p>© 2025 davekpave • Tutor Dave B.</p>
       </footer>
     </div>
@@ -278,9 +284,7 @@
       <footer>
         <p><em>Not:</em> Bu sayfa üzerinden ilk dersinizi ayırtırsanız, küçük bir yönlendirme ödülü kazanabilirim — ve siz derste %30 indirim kazanırsınız.<br><br>
         Bu sayfa bağımsız olarak oluşturulmuştur ve Preply ile bağlantılı değildir.<br>
-        Resmî web sitesine 
-        <a href="https://preply.com" target="_blank" rel="noopener">preply.com</a> 
-        adresinden ulaşabilirsiniz, ancak indirim yalnızca bu sayfa üzerinden geçerlidir.</p>
+        Resmî web sitesine <a href="https://preply.com" target="_blank" rel="noopener">preply.com</a> adresinden ulaşabilirsiniz, ancak indirim yalnızca bu sayfa üzerinden geçerlidir.</p>
         <p>© 2025 davekpave • Tutor Dave B.</p>
       </footer>
     </div>
@@ -296,14 +300,12 @@
       function showEnglish() {
         enContent.classList.add('active');
         trContent.classList.remove('active');
-        toggleBtn.textContent = 'English | Türkçe';
         current = 'en';
       }
 
       function showTurkish() {
         trContent.classList.add('active');
         enContent.classList.remove('active');
-        toggleBtn.textContent = 'Türkçe | English';
         current = 'tr';
       }
 

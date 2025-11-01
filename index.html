@@ -9,8 +9,8 @@
 
   <style>
     :root {
-      --primary: #FF7AAC;
-      --accent: #3BB3BD;
+      --primary: #FF7AAC; /* Pink */
+      --accent: #3BB3BD; /* Teal */
       --text: #333;
       --background: #FAFAFA;
       --card-bg: #FFF;
@@ -51,7 +51,7 @@
     }
 
     .lang-toggle .active-lang {
-      color: var(--primary);
+      color: var(--accent);
     }
 
     .lang-toggle .inactive-lang {
@@ -103,7 +103,7 @@
     }
 
     h2 {
-      color: var(--primary);
+      color: var(--accent);
       margin-top: 1.5rem;
       margin-bottom: 0.5rem;
     }
@@ -118,25 +118,25 @@
     }
 
     li::marker {
-      color: var(--primary);
+      color: var(--accent);
       font-weight: bold;
     }
 
     .cta {
       display: inline-block;
       margin: 3rem auto 1.5rem;
-      background: var(--accent);
+      background: linear-gradient(45deg, var(--primary), var(--accent));
       color: white;
       padding: 1rem 2rem;
       text-decoration: none;
       font-weight: 600;
       border-radius: 50px;
       transition: all 0.3s ease;
-      box-shadow: 0 4px 10px rgba(59, 179, 189, 0.3);
+      box-shadow: 0 4px 10px rgba(255, 122, 172, 0.35);
     }
 
     .cta:hover {
-      background: linear-gradient(45deg, #4ec7ca, #2aa5b3);
+      background: linear-gradient(45deg, var(--accent), var(--primary));
       transform: translateY(-2px);
     }
 

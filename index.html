@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Learn a language online with a Preply tutor and get 30% off your first lesson. Choose your tutor, your budget, and learn flexibly from anywhere." />
   <title>Learn Languages Online with a Preply Tutor</title>
   <link rel="preload" as="image" href="study.png" />
 
   <style>
     :root {
-      --primary: #FF7AAC; /* Pink */
-      --accent: #3BB3BD; /* Teal */
+      --primary: #FF7AAC; /* Pink (bullets / accent) */
+      --accent: #3BB3BD;  /* Teal (headings, header, active language) */
       --text: #333;
       --background: #FAFAFA;
       --card-bg: #FFF;
@@ -46,27 +46,16 @@
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
-    .lang-toggle span {
-      padding: 0 4px;
-    }
+    .lang-toggle span { padding: 0 4px; }
 
-    .lang-toggle .active-lang {
-      color: var(--accent);
-    }
+    .lang-toggle .active-lang { color: var(--accent); }
+    .lang-toggle .inactive-lang { color: var(--text); opacity: 0.7; }
 
-    .lang-toggle .inactive-lang {
-      color: var(--text);
-      opacity: 0.7;
-    }
-
-    .lang-toggle .divider {
-      color: var(--divider);
-      margin: 0 6px;
-    }
+    .lang-toggle .divider { color: var(--divider); margin: 0 6px; }
 
     .lang-toggle:hover {
       transform: translateY(-2px);
-      box-shadow: 0 5px 14px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 5px 14px rgba(0,0,0,0.15);
     }
 
     main {
@@ -75,7 +64,7 @@
       margin: 2rem auto;
       padding: 2rem;
       border-radius: 14px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
     }
 
     .split {
@@ -86,18 +75,14 @@
       margin-bottom: 1.5rem;
     }
 
-    .split .content {
-      flex: 1;
-      min-width: 260px;
-      order: 1;
-    }
+    .split .content { flex: 1; min-width: 260px; order: 1; }
 
     .split img {
       flex: 1;
       min-width: 260px;
       width: 100%;
       border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
       object-fit: cover;
       order: 2;
     }
@@ -108,19 +93,12 @@
       margin-bottom: 0.5rem;
     }
 
-    ul, ol {
-      margin-top: 0.75rem;
-      margin-left: 1.2rem;
-    }
+    ul, ol { margin-top: 0.75rem; margin-left: 1.2rem; }
 
-    li {
-      margin-bottom: 0.5rem;
-    }
+    li { margin-bottom: 0.5rem; }
 
-    li::marker {
-      color: var(--accent);
-      font-weight: bold;
-    }
+    /* <-- bullets set to pink as requested --> */
+    li::marker { color: var(--primary); font-weight: bold; }
 
     .cta {
       display: inline-block;
@@ -132,7 +110,7 @@
       font-weight: 600;
       border-radius: 50px;
       transition: all 0.3s ease;
-      box-shadow: 0 4px 10px rgba(255, 122, 172, 0.35);
+      box-shadow: 0 4px 10px rgba(255,122,172,0.35);
     }
 
     .cta:hover {
@@ -158,7 +136,7 @@
     .lang { display: none; }
     .lang.active { display: block; }
 
-    @media (max-width: 700px) {
+    @media (max-width:700px) {
       .split { flex-direction: column; }
       main { margin: 1rem; padding: 1.25rem; }
       .lang-toggle { font-size: 0.9rem; padding: 0.5rem 0.8rem; }

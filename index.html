@@ -18,8 +18,8 @@
 
   <style>
     :root {
-      --primary: #FF7AAC;
-      --accent: #3BB3BD;
+      --primary: #3BB3BD;  /* Teal (Primary) */
+      --accent: #FF7AAC;   /* Pink (Accent) */
       --text: #333;
       --background: #FAFAFA;
       --card-bg: #FFF;
@@ -36,15 +36,27 @@
     }
 
     header {
-      background: var(--accent);
+      background: var(--primary);
       height: 70px;
       position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+    }
+
+    .logo {
+      height: 42px;
+      width: auto;
+      border-radius: 10px;
+      transition: transform 0.2s ease;
+    }
+
+    .logo:hover {
+      transform: scale(1.05);
     }
 
     .lang-toggle {
-      position: absolute;
-      top: 15px;
-      right: 20px;
       background: #fff;
       border: none;
       border-radius: 40px;
@@ -56,7 +68,7 @@
     }
 
     .lang-toggle span { padding: 0 4px; }
-    .lang-toggle .active-lang { color: var(--accent); }
+    .lang-toggle .active-lang { color: var(--primary); }
     .lang-toggle .inactive-lang { color: var(--text); opacity: 0.7; }
     .lang-toggle .divider { color: var(--divider); margin: 0 6px; }
 
@@ -93,11 +105,11 @@
       order: 2;
     }
 
-    h2 { color: var(--accent); margin-top: 1.5rem; margin-bottom: 0.5rem; }
+    h2 { color: var(--primary); margin-top: 1.5rem; margin-bottom: 0.5rem; }
 
     ul, ol { margin-top: 0.75rem; margin-left: 1.2rem; }
     li { margin-bottom: 0.5rem; }
-    li::marker { color: var(--primary); font-weight: bold; }
+    li::marker { color: var(--accent); font-weight: bold; }
 
     .cta {
       display: inline-block;
@@ -109,7 +121,7 @@
       font-weight: 600;
       border-radius: 50px;
       transition: all 0.3s ease;
-      box-shadow: 0 4px 10px rgba(255,122,172,0.35);
+      box-shadow: 0 4px 10px rgba(59,179,189,0.35);
     }
 
     .cta:hover {
@@ -129,13 +141,19 @@
       line-height: 1.7;
     }
 
-    footer a { color: var(--accent); text-decoration: none; }
+    footer a { color: var(--primary); text-decoration: none; }
     footer a:hover { text-decoration: underline; }
 
     .lang { display: none; }
     .lang.active { display: block; }
 
     @media (max-width:700px) {
+      header {
+        flex-direction: row;
+        height: auto;
+        padding: 10px 15px;
+      }
+      .logo { height: 36px; }
       .split { flex-direction: column; }
       main { margin: 1rem; padding: 1.25rem; }
       .lang-toggle { font-size: 0.9rem; padding: 0.5rem 0.8rem; }
@@ -148,6 +166,7 @@
 
 <body>
   <header>
+    <img src="pr-logo.png" alt="PR Logo" class="logo" />
     <button id="langToggle" class="lang-toggle" aria-label="Switch language" title="Switch language">
       <span class="active-lang">English</span>
       <span class="divider">|</span>
@@ -160,7 +179,7 @@
     <div class="lang lang-en active" id="enContent" lang="en">
       <section class="split">
         <div class="content">
-          <h2>Why Thousands of Students Choose Preply Tutors</h2>
+          <h2>Why Thousands of Students Choose PR Tutors</h2>
           <ul>
             <li>Take 1-on-1 lessons with experienced tutors from around the world</li>
             <li>Choose a schedule and budget that fit your lifestyle</li>
@@ -217,7 +236,7 @@
     <div class="lang lang-tr" id="trContent" lang="tr" aria-hidden="true">
       <section class="split">
         <div class="content">
-          <h2>Binlerce Öğrencinin Preply Eğitmenlerini Tercih Etme Nedeni</h2>
+          <h2>Binlerce Öğrencinin PR Eğitmenlerini Tercih Etme Nedeni</h2>
           <ul>
             <li>Dünyanın dört bir yanından deneyimli eğitmenlerle bire bir ders alın</li>
             <li>Bütçenize ve yaşam tarzınıza uygun bir program oluşturun</li>

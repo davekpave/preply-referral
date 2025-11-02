@@ -16,9 +16,10 @@
 
   <!-- ✅ Favicon -->
   <link rel="icon" type="image/png" href="PR.png" />
+
   <link rel="preload" as="image" href="study-teal-3.png" />
 
-  <!-- ✅ Google Ads Tag -->
+  <!-- ✅ Google Tag (Global site tag) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17625713572"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -29,8 +30,8 @@
 
   <style>
     :root {
-      --primary: #3BB3BD;  /* Teal (Primary) */
-      --accent: #FF7AAC;   /* Pink (Accent) */
+      --primary: #3BB3BD;
+      --accent: #FF7AAC;
       --text: #333;
       --background: #FAFAFA;
       --card-bg: #FFF;
@@ -62,7 +63,6 @@
       border-radius: 10px;
       transition: transform 0.2s ease;
     }
-
     .logo:hover { transform: scale(1.05); }
 
     .lang-toggle {
@@ -72,15 +72,13 @@
       font-weight: 600;
       cursor: pointer;
       padding: 0.5rem 1rem;
-      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
-
     .lang-toggle span { padding: 0 4px; }
     .lang-toggle .active-lang { color: var(--primary); }
     .lang-toggle .inactive-lang { color: var(--text); opacity: 0.7; }
     .lang-toggle .divider { color: var(--divider); margin: 0 6px; }
-
     .lang-toggle:hover {
       transform: translateY(-2px);
       box-shadow: 0 5px 14px rgba(0,0,0,0.15);
@@ -102,7 +100,6 @@
       gap: 2rem;
       margin-bottom: 1.5rem;
     }
-
     .split .content { flex: 1; min-width: 260px; order: 1; }
     .split img {
       flex: 1;
@@ -132,7 +129,6 @@
       transition: all 0.3s ease;
       box-shadow: 0 4px 10px rgba(59,179,189,0.35);
     }
-
     .cta:hover {
       background: linear-gradient(45deg, var(--accent), var(--primary));
       transform: translateY(-2px);
@@ -149,7 +145,6 @@
       border-top: 1px solid #eee;
       line-height: 1.7;
     }
-
     footer a { color: var(--primary); text-decoration: none; }
     footer a:hover { text-decoration: underline; }
 
@@ -184,7 +179,6 @@
   </header>
 
   <main>
-    <!-- English -->
     <div class="lang lang-en active" id="enContent" lang="en">
       <section class="split">
         <div class="content">
@@ -206,7 +200,6 @@
             <li>Build consistent study habits for long-term fluency and success</li>
           </ul>
         </div>
-
         <img src="study-teal-3.png" alt="Online learning session" loading="lazy" decoding="async">
       </section>
 
@@ -220,7 +213,7 @@
       </section>
 
       <div class="center">
-        <a class="cta"
+        <a class="cta" id="discountButton"
            href="https://preply.com/en/?pref=MjE5Mjc2MA==&id=1761352777.480834"
            target="_blank" rel="noopener">
            I Want My 30% Discount
@@ -228,20 +221,12 @@
       </div>
 
       <footer>
-        <p>
-          Disclosure: If you book your first lesson through this page, I may earn a small referral reward —<br>
-          and you’ll receive 30% off your first lesson.
-        </p><br>
-        <p>
-          Disclaimer: This page is independently created and not affiliated with Preply.<br>
-          You can visit the official website at <a href="https://preply.com" target="_blank" rel="noopener">preply.com</a>,
-          but the discount is only available through this page.
-        </p><br>
+        <p>Disclosure: If you book your first lesson through this page, I may earn a small referral reward —<br>and you’ll receive 30% off your first lesson.</p><br>
+        <p>Disclaimer: This page is independently created and not affiliated with Preply.<br>You can visit the official website at <a href="https://preply.com" target="_blank" rel="noopener">preply.com</a>, but the discount is only available through this page.</p><br>
         <p>© 2025 davekpave • Tutor Dave B. • PR</p>
       </footer>
     </div>
 
-    <!-- Turkish -->
     <div class="lang lang-tr" id="trContent" lang="tr" aria-hidden="true">
       <section class="split">
         <div class="content">
@@ -263,7 +248,6 @@
             <li>Uzun vadeli akıcılık için etkili çalışma alışkanlıkları edinin</li>
           </ul>
         </div>
-
         <img src="study-teal-3.png" alt="Çevrimiçi öğrenme oturumu">
       </section>
 
@@ -277,7 +261,7 @@
       </section>
 
       <div class="center">
-        <a class="cta"
+        <a class="cta" id="discountButtonTR"
            href="https://preply.com/en/?pref=MjE5Mjc2MA==&id=1761352777.480834"
            target="_blank" rel="noopener">
            %30 İndirimi İstiyorum
@@ -285,15 +269,8 @@
       </div>
 
       <footer>
-        <p>
-          Açıklama: Bu sayfa üzerinden ilk dersinizi ayırtırsanız, küçük bir yönlendirme ödülü kazanabilirim —<br>
-          ve ilk dersinizde %30 indirim kazanırsınız.
-        </p><br>
-        <p>
-          Feragat: Bu sayfa bağımsız olarak oluşturulmuştur ve Preply ile bağlantılı değildir.<br>
-          Resmî siteye <a href="https://preply.com" target="_blank" rel="noopener">preply.com</a> adresinden ulaşabilirsiniz,
-          ancak indirim yalnızca bu sayfa üzerinden geçerlidir.
-        </p><br>
+        <p>Açıklama: Bu sayfa üzerinden ilk dersinizi ayırtırsanız, küçük bir yönlendirme ödülü kazanabilirim —<br>ve ilk dersinizde %30 indirim kazanırsınız.</p><br>
+        <p>Feragat: Bu sayfa bağımsız olarak oluşturulmuştur ve Preply ile bağlantılı değildir.<br>Resmî siteye <a href="https://preply.com" target="_blank" rel="noopener">preply.com</a> adresinden ulaşabilirsiniz, ancak indirim yalnızca bu sayfa üzerinden geçerlidir.</p><br>
         <p>© 2025 davekpave • Eğitmen Dave B. • PR</p>
       </footer>
     </div>
@@ -342,17 +319,21 @@
         showEnglish();
       }
     })();
-  </script>
 
-  <!-- ✅ Conversion event snippet moved here for stability -->
-  <script>
-    if (typeof gtag === 'function') {
-      gtag('event', 'conversion', {
-        'send_to': 'AW-17625713572/LucCCJWijbgbEKSXzNRB',
-        'value': 1.0,
-        'currency': 'IDR'
+    // ✅ Conversion tracking on button click
+    document.addEventListener('DOMContentLoaded', () => {
+      const buttons = document.querySelectorAll('#discountButton, #discountButtonTR');
+      buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          gtag('event', 'conversion', {
+            'send_to': 'AW-17625713572/LucCCJWijbgbEKSXzNRB',
+            'value': 1.0,
+            'currency': 'IDR'
+          });
+        });
       });
-    }
+    });
   </script>
 </body>
 </html>
+

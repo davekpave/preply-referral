@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="="utf-8" />
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <title>Learn Languages Online with PR</title>
@@ -114,13 +114,14 @@
       outline-offset: 3px;
     }
 
+    /* Center wrapper for main CTA */
     .center {
       display: flex;
       justify-content: center;
       align-items: center;
       text-align: center;
       width: 100%;
-      margin-top: 1.5rem;
+      margin-top: 2.25rem; /* ✅ Added breathing room above the main CTA */
     }
 
     .cta {
@@ -242,6 +243,7 @@
       .header-text { white-space: normal; text-align: center; margin: 6px 0; }
       main { margin: 1rem; padding: 1.25rem; }
       .lang-toggle, .header-cta, .cta { width: 100%; text-align: center; min-width: unset; }
+      .center { margin-top: 1.75rem; } /* slightly tighter on mobile */
     }
   </style>
 </head>
@@ -265,7 +267,6 @@
   </header>
 
   <main>
-    <!-- English -->
     <div class="lang lang-en active" id="enContent" lang="en">
       <section class="split">
         <div class="content">

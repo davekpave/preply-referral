@@ -73,6 +73,7 @@
       margin-right: 6px;
     }
 
+    /* === Shared Button Styles === */
     .header-cta,
     .cta {
       background: var(--accent);
@@ -113,8 +114,11 @@
       outline-offset: 3px;
     }
 
-    /* Main CTA identical to header CTA */
+    /* === Main CTA — visually matched to header === */
     .cta {
+      font-size: 1rem; /* slightly larger for balance */
+      height: 46px; /* optical correction */
+      padding: 0 1.25rem;
       margin: 2.5rem auto 1.5rem;
     }
 
@@ -125,6 +129,7 @@
       align-items: center;
     }
 
+    /* === Language Toggle === */
     .lang-toggle {
       background: #fff;
       border: none;
@@ -237,7 +242,7 @@
       .header-right { flex-direction: column; gap: 8px; }
       .header-text { white-space: normal; text-align: center; margin: 6px 0; }
       main { margin: 1rem; padding: 1.25rem; }
-      .lang-toggle, .header-cta { width: 100%; text-align: center; }
+      .lang-toggle, .header-cta, .cta { width: 100%; text-align: center; }
     }
   </style>
 </head>

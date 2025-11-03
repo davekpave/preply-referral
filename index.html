@@ -59,9 +59,46 @@
       gap: 10px;
     }
 
-    /* ✅ Pixel-perfect match between CTA and Language Toggle */
-    .lang-toggle,
+    /* ✅ Pink CTA button */
     .header-cta {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 40px;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      line-height: 1;
+      text-decoration: none;
+      cursor: pointer;
+
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      height: 40px;
+      padding: 0 1rem;
+
+      box-shadow: 0 3px 10px rgba(255, 122, 172, 0.4);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease;
+      appearance: none;
+      -webkit-appearance: none;
+      outline: none;
+    }
+
+    .header-cta:hover {
+      background-color: #ff619d; /* darker pink hover */
+      transform: translateY(-2px);
+      box-shadow: 0 5px 14px rgba(255, 122, 172, 0.55);
+    }
+
+    .header-cta:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+    }
+
+    /* ✅ Language toggle stays the same */
+    .lang-toggle {
       background: #fff;
       border: none;
       border-radius: 40px;
@@ -70,7 +107,6 @@
       font-size: 0.95rem;
       line-height: 1;
       color: var(--text);
-      text-decoration: none;
       cursor: pointer;
 
       display: inline-flex;
@@ -82,9 +118,6 @@
 
       box-shadow: 0 3px 10px rgba(0,0,0,0.1);
       transition: transform 0.2s ease, box-shadow 0.2s ease;
-      appearance: none;
-      -webkit-appearance: none;
-      outline: none;
     }
 
     .lang-toggle span { padding: 0 4px; }
@@ -92,13 +125,11 @@
     .lang-toggle .inactive-lang { color: var(--text); opacity: 0.7; }
     .lang-toggle .divider { color: var(--divider); margin: 0 6px; }
 
-    .lang-toggle:hover,
-    .header-cta:hover {
+    .lang-toggle:hover {
       transform: translateY(-2px);
       box-shadow: 0 5px 14px rgba(0,0,0,0.15);
     }
 
-    .header-cta:focus-visible,
     .lang-toggle:focus-visible {
       outline: 2px solid var(--accent);
       outline-offset: 3px;

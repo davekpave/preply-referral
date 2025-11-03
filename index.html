@@ -44,6 +44,8 @@
       justify-content: space-between;
       padding: 0 20px;
       flex-wrap: nowrap;
+      position: relative; /* ensures it doesn't overlap content */
+      z-index: 10;
     }
 
     .logo {
@@ -61,7 +63,7 @@
       flex-shrink: 0;
     }
 
-    /* New text style matching CTA font */
+    /* Header text next to CTA */
     .header-text {
       color: #fff;
       font-family: 'Segoe UI', Arial, sans-serif;
@@ -161,10 +163,11 @@
       outline-offset: 3px;
     }
 
+    /* --- MAIN CONTENT --- */
     main {
       max-width: 900px;
       background: var(--card-bg);
-      margin: 2rem auto;
+      margin: 6rem auto 2rem; /* fixed top spacing so it appears below header */
       padding: 2rem;
       border-radius: 14px;
       box-shadow: 0 4px 20px rgba(0,0,0,0.08);
@@ -177,10 +180,12 @@
       gap: 2rem;
       margin-bottom: 1.5rem;
     }
-    .split .content { flex: 1; min-width: 260px; order: 1; }
+
+    .split .content { flex: 1 1 55%; min-width: 280px; order: 1; }
     .split img {
-      flex: 1;
+      flex: 1 1 40%;
       min-width: 260px;
+      max-width: 420px;
       width: 100%;
       border-radius: 12px;
       box-shadow: 0 4px 15px rgba(0,0,0,0.08);
@@ -246,3 +251,98 @@
       </button>
     </div>
   </header>
+
+  <main>
+    <div class="lang lang-en active" id="enContent" lang="en">
+      <section class="split">
+        <div class="content">
+          <h2>Why Thousands of Students Choose Preply</h2>
+          <ul>
+            <li>Take 1-on-1 lessons with experienced tutors from around the world</li>
+            <li>Choose a schedule and budget that fit your lifestyle</li>
+            <li>Access 30+ languages — from English to Japanese and beyond</li>
+            <li>Enjoy engaging, interactive lessons from home or anywhere</li>
+            <li>Learn confidently with secure payments and trusted support</li>
+          </ul>
+
+          <h2>What You’ll Learn with Your Language Tutor on Preply</h2>
+          <ul>
+            <li>Speak naturally and confidently with real native speakers</li>
+            <li>Master vocabulary and grammar you’ll actually use in daily life</li>
+            <li>Sharpen your listening and pronunciation through guided practice</li>
+            <li>Strengthen your writing and reading for work, study, or exams</li>
+            <li>Build consistent study habits for long-term fluency and success</li>
+          </ul>
+        </div>
+        <img src="study-teal-5.png" alt="Online learning session" loading="lazy" decoding="async">
+      </section>
+
+      <section>
+        <h2>How to Get 30% Off Your First Lesson on Preply</h2>
+        <ol>
+          <li>Click the button below to visit Preply.</li>
+          <li>Choose your language and find a tutor who fits your goals.</li>
+          <li>Book your first lesson and start learning right away — with 30% off!</li>
+        </ol>
+      </section>
+
+      <div class="center">
+        <a class="cta" href="https://preply.com/en/?pref=MjE5Mjc2MA==&id=1761352777.480834" target="_blank" rel="noopener">
+           I Want My 30% Discount
+        </a>
+      </div>
+
+      <footer>
+        <p>Disclosure: If you book your first lesson through this page, I may earn a small referral reward — and you’ll receive 30% off your first lesson.</p><br>
+        <p>Disclaimer: This page is independently created and not affiliated with Preply. You can visit the official website at <a href="https://preply.com" target="_blank" rel="noopener">preply.com</a>, but the discount is only available through this page.</p><br>
+        <p>© 2025 davekpave • Tutor Dave B. • PR</p>
+      </footer>
+    </div>
+  </main>
+
+  <script>
+    (function() {
+      const toggleBtn = document.getElementById('langToggle');
+      const enContent = document.getElementById('enContent');
+      const trContent = document.getElementById('trContent');
+      let current = 'en';
+
+      function updateButton() {
+        if (current === 'en') {
+          toggleBtn.innerHTML = '<span class="active-lang">English</span><span class="divider">|</span><span class="inactive-lang">Türkçe</span>';
+        } else {
+          toggleBtn.innerHTML = '<span class="inactive-lang">English</span><span class="divider">|</span><span class="active-lang">Türkçe</span>';
+        }
+      }
+
+      function showEnglish() {
+        enContent.classList.add('active');
+        if (trContent) trContent.classList.remove('active');
+        current = 'en';
+        updateButton();
+      }
+
+      function showTurkish() {
+        if (trContent) trContent.classList.add('active');
+        enContent.classList.remove('active');
+        current = 'tr';
+        updateButton();
+      }
+
+      toggleBtn.addEventListener('click', () => {
+        if (current === 'en') showTurkish();
+        else showEnglish();
+        try { localStorage.setItem('pref-lang', current); } catch (e) {}
+      });
+
+      try {
+        const saved = localStorage.getItem('pref-lang');
+        if (saved === 'tr') showTurkish();
+        else showEnglish();
+      } catch {
+        showEnglish();
+      }
+    })();
+  </script>
+</body>
+</html>

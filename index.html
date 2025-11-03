@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <title>Learn Languages Online with PR</title>
-
   <meta name="description" content="Get 30% off your first lesson! Find experienced tutors, learn over 30 languages, and study online with flexible 1-on-1 lessons tailored to you." />
   <meta property="og:title" content="Learn Languages Online with PR" />
   <meta property="og:description" content="Book your first lesson through this page and receive 30% off! Learn English, Spanish, Japanese, and more with trusted tutors." />
@@ -43,7 +42,6 @@
       align-items: center;
       justify-content: space-between;
       padding: 0 20px;
-      flex-wrap: nowrap;
       position: relative;
       z-index: 10;
     }
@@ -65,40 +63,30 @@
 
     .header-text {
       color: #fff;
-      font-family: 'Segoe UI', Arial, sans-serif;
       font-weight: 600;
       font-size: 0.95rem;
       line-height: 1;
       white-space: nowrap;
-      margin-right: 6px;
     }
 
-    /* === Unified Button Styles === */
+    /* === Buttons === */
     .header-cta,
     .cta {
       background: var(--accent);
       color: #fff;
       border: none;
       border-radius: 40px;
-      font-family: 'Segoe UI', Arial, sans-serif;
       font-weight: 600;
       font-size: 0.95rem;
-      line-height: 1;
       text-decoration: none;
       cursor: pointer;
-
       display: inline-flex;
       align-items: center;
       justify-content: center;
-
       height: 40px;
       padding: 0 1.5rem;
-
       box-shadow: 0 3px 10px rgba(255, 122, 172, 0.4);
       transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease;
-      appearance: none;
-      -webkit-appearance: none;
-      outline: none;
     }
 
     .header-cta:hover,
@@ -108,47 +96,26 @@
       box-shadow: 0 5px 14px rgba(255, 122, 172, 0.55);
     }
 
-    .header-cta:focus-visible,
-    .cta:focus-visible {
-      outline: 2px solid var(--accent);
-      outline-offset: 3px;
-    }
-
-    .center {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      width: 100%;
-      margin-top: 2rem;
-    }
-
-    .cta {
-      margin: 0 auto;
-      min-width: 220px;
-    }
-
-    /* === Language Toggle === */
     .lang-toggle {
       background: #fff;
       border: none;
       border-radius: 40px;
-      font-family: 'Segoe UI', Arial, sans-serif;
       font-weight: 600;
       font-size: 0.95rem;
-      line-height: 1;
       color: var(--text);
       cursor: pointer;
-
       display: inline-flex;
       align-items: center;
       justify-content: center;
-
       height: 40px;
       padding: 0 1rem;
-
       box-shadow: 0 3px 10px rgba(0,0,0,0.1);
       transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .lang-toggle:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 14px rgba(0,0,0,0.15);
     }
 
     .lang-toggle span { padding: 0 4px; }
@@ -156,16 +123,7 @@
     .lang-toggle .inactive-lang { color: var(--text); opacity: 0.7; }
     .lang-toggle .divider { color: var(--divider); margin: 0 6px; }
 
-    .lang-toggle:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 5px 14px rgba(0,0,0,0.15);
-    }
-
-    .lang-toggle:focus-visible {
-      outline: 2px solid var(--accent);
-      outline-offset: 3px;
-    }
-
+    /* === Main === */
     main {
       max-width: 900px;
       background: var(--card-bg);
@@ -211,32 +169,27 @@
       border-top: 1px solid #eee;
       line-height: 1.7;
     }
-    footer a { color: var(--primary); text-decoration: none; }
-    footer a:hover { text-decoration: underline; }
 
-    .lang {
-      display: none;
-      position: relative;
-      z-index: 1;
-      margin-top: 0;
+    .center {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      width: 100%;
+      margin-top: 2rem;
     }
 
-    .lang.active {
-      display: block;
-      animation: fadeIn 0.3s ease-in;
+    .cta {
+      margin: 0 auto;
+      min-width: 220px;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* === Mobile Header Reordering === */
+    /* === Mobile Layout Fix === */
     @media (max-width:700px) {
       header {
         flex-direction: column;
-        height: auto;
-        padding: 8px 12px 14px;
+        height: auto; /* FIX: allow header to grow naturally */
+        padding: 10px 12px 16px;
         text-align: center;
       }
 
@@ -248,41 +201,25 @@
       .header-right {
         flex-direction: column;
         align-items: center;
-        gap: 8px;
         width: 100%;
+        gap: 8px;
       }
 
-      /* Reorder elements */
+      /* Reorder only for mobile */
       .lang-toggle { order: 1; width: 92%; max-width: 360px; }
-      .header-text { order: 2; font-size: 0.9rem; line-height: 1.3; white-space: normal; margin: 4px 0 6px; }
+      .header-text { order: 2; font-size: 0.9rem; white-space: normal; }
       .header-cta { order: 3; width: 92%; max-width: 360px; }
 
-      .split {
-        flex-direction: column;
-      }
-
-      .split img {
-        order: 1;
-        margin-bottom: 1rem;
-      }
-
-      .split .content {
-        order: 2;
-      }
-
       main {
-        margin: 1rem;
+        margin-top: 1rem; /* ensure visible content below header */
         padding: 1.25rem;
       }
 
-      .cta {
-        width: 100%;
-        text-align: center;
-      }
-
-      .center {
-        margin-top: 1.75rem;
-      }
+      .split { flex-direction: column; }
+      .split img { order: 1; margin-bottom: 1rem; }
+      .split .content { order: 2; }
+      .cta { width: 100%; text-align: center; }
+      .center { margin-top: 1.75rem; }
     }
   </style>
 </head>
@@ -291,24 +228,21 @@
   <header>
     <img src="PR.png" alt="PR Logo" class="logo" />
     <div class="header-right">
-      <button id="langToggle" class="lang-toggle" aria-label="Switch language" title="Switch language">
-        <span class="active-lang">English</span>
-        <span class="divider">|</span>
-        <span class="inactive-lang">Türkçe</span>
-      </button>
-
       <span class="header-text">Get 30% Off Your First Lesson on Preply</span>
-
       <a href="https://preply.com/en/?pref=MjE5Mjc2MA==&id=1762162837.049725&ep=w1"
          target="_blank" rel="noopener"
          class="header-cta">
          I Want My 30% Discount
       </a>
+      <button id="langToggle" class="lang-toggle" aria-label="Switch language" title="Switch language">
+        <span class="active-lang">English</span>
+        <span class="divider">|</span>
+        <span class="inactive-lang">Türkçe</span>
+      </button>
     </div>
   </header>
 
   <main>
-    <!-- English -->
     <div class="lang lang-en active" id="enContent" lang="en">
       <section class="split">
         <img src="study-teal-5.png" alt="Online learning session" loading="lazy" decoding="async">
@@ -318,8 +252,6 @@
             <li>Take 1-on-1 lessons with experienced tutors from around the world</li>
             <li>Choose a schedule and budget that fit your lifestyle</li>
             <li>Access 30+ languages — from English to Japanese and beyond</li>
-            <li>Enjoy engaging, interactive lessons from home or anywhere</li>
-            <li>Learn confidently with secure payments and trusted support</li>
           </ul>
         </div>
       </section>

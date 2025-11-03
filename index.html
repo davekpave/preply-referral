@@ -20,7 +20,7 @@
   <style>
     :root {
       --primary: #3BB3BD;
-      --accent: #FF7AAC;
+      --accent: #FF7AAC; /* Preply Pink */
       --text: #333;
       --background: #FAFAFA;
       --card-bg: #FFF;
@@ -59,8 +59,9 @@
       gap: 10px;
     }
 
-    /* ✅ Pink CTA button */
-    .header-cta {
+    /* === Header CTA & Main CTA — Preply Pink === */
+    .header-cta,
+    .cta {
       background: var(--accent);
       color: #fff;
       border: none;
@@ -76,9 +77,6 @@
       align-items: center;
       justify-content: center;
 
-      height: 40px;
-      padding: 0 1rem;
-
       box-shadow: 0 3px 10px rgba(255, 122, 172, 0.4);
       transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease;
       appearance: none;
@@ -86,18 +84,36 @@
       outline: none;
     }
 
-    .header-cta:hover {
-      background-color: #ff619d; /* darker pink hover */
+    /* Header CTA size */
+    .header-cta {
+      height: 40px;
+      padding: 0 1rem;
+    }
+
+    /* Main CTA size */
+    .cta {
+      display: inline-block;
+      margin: 3rem auto 1.5rem;
+      padding: 1rem 2rem;
+      font-size: 1rem;
+      border-radius: 50px;
+    }
+
+    /* Hover effect — deeper pink */
+    .header-cta:hover,
+    .cta:hover {
+      background-color: #ff619d;
       transform: translateY(-2px);
       box-shadow: 0 5px 14px rgba(255, 122, 172, 0.55);
     }
 
-    .header-cta:focus-visible {
+    .header-cta:focus-visible,
+    .cta:focus-visible {
       outline: 2px solid var(--accent);
       outline-offset: 3px;
     }
 
-    /* ✅ Language toggle stays the same */
+    /* Language toggle */
     .lang-toggle {
       background: #fff;
       border: none;
@@ -167,23 +183,6 @@
     ul, ol { margin-top: 0.75rem; margin-left: 1.2rem; }
     li { margin-bottom: 0.5rem; }
     li::marker { color: var(--accent); font-weight: bold; }
-
-    .cta {
-      display: inline-block;
-      margin: 3rem auto 1.5rem;
-      background: linear-gradient(45deg, var(--primary), var(--accent));
-      color: white;
-      padding: 1rem 2rem;
-      text-decoration: none;
-      font-weight: 600;
-      border-radius: 50px;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 10px rgba(59,179,189,0.35);
-    }
-    .cta:hover {
-      background: linear-gradient(45deg, var(--accent), var(--primary));
-      transform: translateY(-2px);
-    }
 
     .center { text-align: center; }
 

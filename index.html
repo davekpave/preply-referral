@@ -20,7 +20,7 @@
   <style>
     :root {
       --primary: #3BB3BD;
-      --accent: #FF7AAC; /* Preply Pink */
+      --accent: #FF7AAC;
       --text: #333;
       --background: #FAFAFA;
       --card-bg: #FFF;
@@ -44,7 +44,7 @@
       justify-content: space-between;
       padding: 0 20px;
       flex-wrap: nowrap;
-      position: relative; /* ensures it doesn't overlap content */
+      position: relative;
       z-index: 10;
     }
 
@@ -63,7 +63,6 @@
       flex-shrink: 0;
     }
 
-    /* Header text next to CTA */
     .header-text {
       color: #fff;
       font-family: 'Segoe UI', Arial, sans-serif;
@@ -74,7 +73,6 @@
       margin-right: 6px;
     }
 
-    /* === Header CTA & Main CTA — Preply Pink === */
     .header-cta,
     .cta {
       background: var(--accent);
@@ -87,11 +85,9 @@
       line-height: 1;
       text-decoration: none;
       cursor: pointer;
-
       display: inline-flex;
       align-items: center;
       justify-content: center;
-
       box-shadow: 0 3px 10px rgba(255, 122, 172, 0.4);
       transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease;
       appearance: none;
@@ -99,10 +95,7 @@
       outline: none;
     }
 
-    .header-cta {
-      height: 40px;
-      padding: 0 1rem;
-    }
+    .header-cta { height: 40px; padding: 0 1rem; }
 
     .cta {
       display: inline-block;
@@ -125,7 +118,6 @@
       outline-offset: 3px;
     }
 
-    /* Language toggle */
     .lang-toggle {
       background: #fff;
       border: none;
@@ -136,14 +128,11 @@
       line-height: 1;
       color: var(--text);
       cursor: pointer;
-
       display: inline-flex;
       align-items: center;
       justify-content: center;
-
       height: 40px;
       padding: 0 1rem;
-
       box-shadow: 0 3px 10px rgba(0,0,0,0.1);
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
@@ -163,14 +152,14 @@
       outline-offset: 3px;
     }
 
-    /* --- MAIN CONTENT --- */
     main {
       max-width: 900px;
       background: var(--card-bg);
-      margin: 6rem auto 2rem; /* fixed top spacing so it appears below header */
+      margin: 6rem auto 2rem;
       padding: 2rem;
       border-radius: 14px;
       box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      min-height: 70vh; /* ensures content is always visible */
     }
 
     .split {
@@ -213,8 +202,22 @@
     footer a { color: var(--primary); text-decoration: none; }
     footer a:hover { text-decoration: underline; }
 
-    .lang { display: none; }
-    .lang.active { display: block; }
+    .lang {
+      display: none;
+      position: relative;
+      z-index: 1;
+      margin-top: 0;
+    }
+
+    .lang.active {
+      display: block;
+      animation: fadeIn 0.3s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
     @media (max-width:700px) {
       header {
@@ -253,6 +256,7 @@
   </header>
 
   <main>
+    <!-- English -->
     <div class="lang lang-en active" id="enContent" lang="en">
       <section class="split">
         <div class="content">
@@ -298,6 +302,53 @@
         <p>© 2025 davekpave • Tutor Dave B. • PR</p>
       </footer>
     </div>
+
+    <!-- Turkish -->
+    <div class="lang lang-tr" id="trContent" lang="tr" aria-hidden="true">
+      <section class="split">
+        <div class="content">
+          <h2>Binlerce Öğrencinin Preply’yi Tercih Etme Nedeni</h2>
+          <ul>
+            <li>Dünyanın dört bir yanından deneyimli eğitmenlerle bire bir ders alın</li>
+            <li>Bütçenize ve yaşam tarzınıza uygun bir program oluşturun</li>
+            <li>İngilizce’den Japonca’ya kadar 30’dan fazla dili öğrenin</li>
+            <li>Evde, işte veya istediğiniz yerde etkileşimli derslerin tadını çıkarın</li>
+            <li>Güvenli ödeme sistemi ve profesyonel destekle içiniz rahat olsun</li>
+          </ul>
+
+          <h2>Preply’deki Dil Eğitmeninizle Neler Öğreneceksiniz</h2>
+          <ul>
+            <li>Anadili İngilizce olan kişilerle doğal ve özgüvenli şekilde konuşun</li>
+            <li>Günlük yaşamda gerçekten kullanacağınız kelime ve dilbilgisini öğrenin</li>
+            <li>Rehberli alıştırmalarla dinleme ve telaffuz becerilerinizi geliştirin</li>
+            <li>İş, eğitim veya sınavlar için yazma ve okuma becerilerinizi güçlendirin</li>
+            <li>Uzun vadeli akıcılık için etkili çalışma alışkanlıkları edinin</li>
+          </ul>
+        </div>
+        <img src="study-teal-5.png" alt="Çevrimiçi öğrenme oturumu">
+      </section>
+
+      <section>
+        <h2>Preply’de İlk Dersinizde %30 İndirim Kazanmanın Yolu</h2>
+        <ol>
+          <li>Aşağıdaki butona tıklayarak Preply’ye gidin.</li>
+          <li>Öğrenmek istediğiniz dili seçin ve size uygun eğitmeni bulun.</li>
+          <li>İlk dersinizi ayırtın ve %30 indirimle hemen öğrenmeye başlayın!</li>
+        </ol>
+      </section>
+
+      <div class="center">
+        <a class="cta" href="https://preply.com/en/?pref=MjE5Mjc2MA==&id=1761352777.480834" target="_blank" rel="noopener">
+           %30 İndirimi İstiyorum
+        </a>
+      </div>
+
+      <footer>
+        <p>Açıklama: Bu sayfa üzerinden ilk dersinizi ayırtırsanız, küçük bir yönlendirme ödülü kazanabilirim — ve ilk dersinizde %30 indirim kazanırsınız.</p><br>
+        <p>Feragat: Bu sayfa bağımsız olarak oluşturulmuştur ve Preply ile bağlantılı değildir. Resmî siteye <a href="https://preply.com" target="_blank" rel="noopener">preply.com</a> adresinden ulaşabilirsiniz, ancak indirim yalnızca bu sayfa üzerinden geçerlidir.</p><br>
+        <p>© 2025 davekpave • Eğitmen Dave B. • PR</p>
+      </footer>
+    </div>
   </main>
 
   <script>
@@ -317,13 +368,13 @@
 
       function showEnglish() {
         enContent.classList.add('active');
-        if (trContent) trContent.classList.remove('active');
+        trContent.classList.remove('active');
         current = 'en';
         updateButton();
       }
 
       function showTurkish() {
-        if (trContent) trContent.classList.add('active');
+        trContent.classList.add('active');
         enContent.classList.remove('active');
         current = 'tr';
         updateButton();

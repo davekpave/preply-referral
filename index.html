@@ -20,7 +20,7 @@
   <style>
     :root {
       --primary: #3BB3BD;
-      --accent: #FF7AAC; /* Preply Pink */
+      --accent: #FF7AAC;
       --text: #333;
       --background: #FAFAFA;
       --card-bg: #FFF;
@@ -43,6 +43,9 @@
       align-items: center;
       justify-content: space-between;
       padding: 0 20px;
+      flex-wrap: nowrap;
+      position: relative;
+      z-index: 10;
     }
 
     .logo {
@@ -56,10 +59,21 @@
     .header-right {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 14px;
+      flex-shrink: 0;
     }
 
-    /* === Header CTA & Main CTA — Preply Pink === */
+    .header-text {
+      color: #fff;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      line-height: 1;
+      white-space: nowrap;
+      margin-right: 6px;
+    }
+
+    /* === Shared Button Styles === */
     .header-cta,
     .cta {
       background: var(--accent);
@@ -77,6 +91,9 @@
       align-items: center;
       justify-content: center;
 
+      height: 40px;
+      padding: 0 1rem;
+
       box-shadow: 0 3px 10px rgba(255, 122, 172, 0.4);
       transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease;
       appearance: none;
@@ -84,22 +101,6 @@
       outline: none;
     }
 
-    /* Header CTA size */
-    .header-cta {
-      height: 40px;
-      padding: 0 1rem;
-    }
-
-    /* Main CTA size */
-    .cta {
-      display: inline-block;
-      margin: 3rem auto 1.5rem;
-      padding: 1rem 2rem;
-      font-size: 1rem;
-      border-radius: 50px;
-    }
-
-    /* Hover effect — deeper pink */
     .header-cta:hover,
     .cta:hover {
       background-color: #ff619d;
@@ -113,7 +114,22 @@
       outline-offset: 3px;
     }
 
-    /* Language toggle */
+    /* === Main CTA — visually matched to header === */
+    .cta {
+      font-size: 1rem; /* slightly larger for balance */
+      height: 46px; /* optical correction */
+      padding: 0 1.25rem;
+      margin: 2.5rem auto 1.5rem;
+    }
+
+    .center {
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* === Language Toggle === */
     .lang-toggle {
       background: #fff;
       border: none;
@@ -154,10 +170,11 @@
     main {
       max-width: 900px;
       background: var(--card-bg);
-      margin: 2rem auto;
+      margin: 6rem auto 2rem;
       padding: 2rem;
       border-radius: 14px;
       box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      min-height: 70vh;
     }
 
     .split {
@@ -167,10 +184,12 @@
       gap: 2rem;
       margin-bottom: 1.5rem;
     }
-    .split .content { flex: 1; min-width: 260px; order: 1; }
+
+    .split .content { flex: 1 1 55%; min-width: 280px; order: 1; }
     .split img {
-      flex: 1;
+      flex: 1 1 40%;
       min-width: 260px;
+      max-width: 420px;
       width: 100%;
       border-radius: 12px;
       box-shadow: 0 4px 15px rgba(0,0,0,0.08);
@@ -184,8 +203,6 @@
     li { margin-bottom: 0.5rem; }
     li::marker { color: var(--accent); font-weight: bold; }
 
-    .center { text-align: center; }
-
     footer {
       text-align: center;
       font-size: 0.88rem;
@@ -198,8 +215,22 @@
     footer a { color: var(--primary); text-decoration: none; }
     footer a:hover { text-decoration: underline; }
 
-    .lang { display: none; }
-    .lang.active { display: block; }
+    .lang {
+      display: none;
+      position: relative;
+      z-index: 1;
+      margin-top: 0;
+    }
+
+    .lang.active {
+      display: block;
+      animation: fadeIn 0.3s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
     @media (max-width:700px) {
       header {
@@ -209,8 +240,9 @@
       }
       .logo { height: 36px; }
       .header-right { flex-direction: column; gap: 8px; }
+      .header-text { white-space: normal; text-align: center; margin: 6px 0; }
       main { margin: 1rem; padding: 1.25rem; }
-      .lang-toggle, .header-cta { width: 100%; text-align: center; }
+      .lang-toggle, .header-cta, .cta { width: 100%; text-align: center; }
     }
   </style>
 </head>
@@ -218,7 +250,10 @@
 <body>
   <header>
     <img src="PR.png" alt="PR Logo" class="logo" />
+
     <div class="header-right">
+      <span class="header-text">Get 30% Off Your First Lesson on Preply</span>
+
       <a href="https://preply.com/en/?pref=MjE5Mjc2MA==&id=1762162837.049725&ep=w1"
          target="_blank" rel="noopener"
          class="header-cta">
@@ -234,6 +269,7 @@
   </header>
 
   <main>
+    <!-- English -->
     <div class="lang lang-en active" id="enContent" lang="en">
       <section class="split">
         <div class="content">
@@ -280,6 +316,7 @@
       </footer>
     </div>
 
+    <!-- Turkish -->
     <div class="lang lang-tr" id="trContent" lang="tr" aria-hidden="true">
       <section class="split">
         <div class="content">

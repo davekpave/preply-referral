@@ -114,14 +114,13 @@
       outline-offset: 3px;
     }
 
-    /* Center wrapper for main CTA */
     .center {
       display: flex;
       justify-content: center;
       align-items: center;
       text-align: center;
       width: 100%;
-      margin-top: 2.25rem;
+      margin-top: 2rem;
     }
 
     .cta {
@@ -232,7 +231,7 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* === MOBILE IMPROVEMENTS === */
+    /* === Mobile Adjustments === */
     @media (max-width:700px) {
       header {
         flex-direction: column;
@@ -259,8 +258,7 @@
         width: 100%;
       }
 
-      .header-cta, 
-      .lang-toggle {
+      .header-cta, .lang-toggle {
         width: 92%;
         max-width: 360px;
       }
@@ -270,14 +268,17 @@
         margin-bottom: 4px;
       }
 
-      .lang-toggle {
-        margin-top: 0;
+      .split {
+        flex-direction: column;
       }
 
-      .cta {
-        width: 100%;
-        text-align: center;
-        min-width: unset;
+      .split img {
+        order: 1;
+        margin-bottom: 1rem;
+      }
+
+      .split .content {
+        order: 2;
       }
 
       main {
@@ -285,7 +286,14 @@
         padding: 1.25rem;
       }
 
-      .center { margin-top: 1.75rem; }
+      .cta {
+        width: 100%;
+        text-align: center;
+      }
+
+      .center {
+        margin-top: 1.75rem;
+      }
     }
   </style>
 </head>
@@ -311,6 +319,7 @@
   <main>
     <div class="lang lang-en active" id="enContent" lang="en">
       <section class="split">
+        <img src="study-teal-5.png" alt="Online learning session" loading="lazy" decoding="async">
         <div class="content">
           <h2>Why Thousands of Students Choose Preply</h2>
           <ul>
@@ -330,7 +339,6 @@
             <li>Build consistent study habits for long-term fluency and success</li>
           </ul>
         </div>
-        <img src="study-teal-5.png" alt="Online learning session" loading="lazy" decoding="async">
       </section>
 
       <section>

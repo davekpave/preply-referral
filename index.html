@@ -55,7 +55,6 @@
       align-items: center;
       justify-content: space-between;
       padding: 0 20px;
-      gap: 10px;
     }
 
     .logo {
@@ -65,12 +64,6 @@
       transition: transform 0.2s ease;
     }
     .logo:hover { transform: scale(1.05); }
-
-    .header-right {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
 
     .lang-toggle {
       background: #fff;
@@ -89,24 +82,6 @@
     .lang-toggle:hover {
       transform: translateY(-2px);
       box-shadow: 0 5px 14px rgba(0,0,0,0.15);
-    }
-
-    .header-cta {
-      background: linear-gradient(45deg, var(--accent), var(--primary));
-      color: white;
-      border: none;
-      border-radius: 40px;
-      font-weight: 600;
-      padding: 0.5rem 1rem;
-      cursor: pointer;
-      text-decoration: none;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-    .header-cta:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 5px 14px rgba(0,0,0,0.15);
-      background: linear-gradient(45deg, var(--primary), var(--accent));
     }
 
     main {
@@ -178,16 +153,17 @@
 
     @media (max-width:700px) {
       header {
-        flex-direction: column;
+        flex-direction: row;
         height: auto;
         padding: 10px 15px;
       }
       .logo { height: 36px; }
-      .header-right { flex-direction: column; gap: 8px; }
       .split { flex-direction: column; }
       main { margin: 1rem; padding: 1.25rem; }
       .lang-toggle { font-size: 0.9rem; padding: 0.5rem 0.8rem; }
-      .header-cta { width: 100%; text-align: center; }
+      .split img { order: 1; }
+      .split .content { order: 2; }
+      .cta { padding: 1.1rem 2.5rem; }
     }
   </style>
 </head>
@@ -195,26 +171,114 @@
 <body>
   <header>
     <img src="PR.png" alt="PR Logo" class="logo" />
-    <div class="header-right">
-      <button id="langToggle" class="lang-toggle" aria-label="Switch language" title="Switch language">
-        <span class="active-lang">English</span>
-        <span class="divider">|</span>
-        <span class="inactive-lang">Türkçe</span>
-      </button>
-
-      <a href="https://preply.com/en/?pref=MjE5Mjc2MA==&id=1762162837.049725&ep=w1"
-         target="_blank" rel="noopener"
-         class="header-cta">
-         I Want My 30% Discount
-      </a>
-    </div>
+    <button id="langToggle" class="lang-toggle" aria-label="Switch language" title="Switch language">
+      <span class="active-lang">English</span>
+      <span class="divider">|</span>
+      <span class="inactive-lang">Türkçe</span>
+    </button>
   </header>
 
   <main>
-    <!-- Your existing English and Turkish content blocks remain unchanged -->
+    <!-- English content -->
+    <div class="lang lang-en active" id="enContent" lang="en">
+      <section class="split">
+        <div class="content">
+          <h2>Why Thousands of Students Choose Preply</h2>
+          <ul>
+            <li>Take 1-on-1 lessons with experienced tutors from around the world</li>
+            <li>Choose a schedule and budget that fit your lifestyle</li>
+            <li>Access 30+ languages — from English to Japanese and beyond</li>
+            <li>Enjoy engaging, interactive lessons from home or anywhere</li>
+            <li>Learn confidently with secure payments and trusted support</li>
+          </ul>
+
+          <h2>What You’ll Learn with Your Language Tutor on Preply</h2>
+          <ul>
+            <li>Speak naturally and confidently with real native speakers</li>
+            <li>Master vocabulary and grammar you’ll actually use in daily life</li>
+            <li>Sharpen your listening and pronunciation through guided practice</li>
+            <li>Strengthen your writing and reading for work, study, or exams</li>
+            <li>Build consistent study habits for long-term fluency and success</li>
+          </ul>
+        </div>
+        <img src="study-teal-3.png" alt="Online learning session" loading="lazy" decoding="async">
+      </section>
+
+      <section>
+        <h2>How to Get 30% Off Your First Lesson on Preply</h2>
+        <ol>
+          <li>Click the button below to visit Preply.</li>
+          <li>Choose your language and find a tutor who fits your goals.</li>
+          <li>Book your first lesson and start learning right away — with 30% off!</li>
+        </ol>
+      </section>
+
+      <div class="center">
+        <a class="cta" id="discountButton"
+           href="https://preply.com/en/?pref=MjE5Mjc2MA==&id=1761352777.480834"
+           target="_blank" rel="noopener">
+           I Want My 30% Discount
+        </a>
+      </div>
+
+      <footer>
+        <p>Disclosure: If you book your first lesson through this page, I may earn a small referral reward —<br>and you’ll receive 30% off your first lesson.</p><br>
+        <p>Disclaimer: This page is independently created and not affiliated with Preply.<br>You can visit the official website at <a href="https://preply.com" target="_blank" rel="noopener">preply.com</a>, but the discount is only available through this page.</p><br>
+        <p>© 2025 davekpave • Tutor Dave B. • PR</p>
+      </footer>
+    </div>
+
+    <!-- Turkish content -->
+    <div class="lang lang-tr" id="trContent" lang="tr" aria-hidden="true">
+      <section class="split">
+        <div class="content">
+          <h2>Binlerce Öğrencinin Preply’yi Tercih Etme Nedeni</h2>
+          <ul>
+            <li>Dünyanın dört bir yanından deneyimli eğitmenlerle bire bir ders alın</li>
+            <li>Bütçenize ve yaşam tarzınıza uygun bir program oluşturun</li>
+            <li>İngilizce’den Japonca’ya kadar 30’dan fazla dili öğrenin</li>
+            <li>Evde, işte veya istediğiniz yerde etkileşimli derslerin tadını çıkarın</li>
+            <li>Güvenli ödeme sistemi ve profesyonel destekle içiniz rahat olsun</li>
+          </ul>
+
+          <h2>Preply’deki Dil Eğitmeninizle Neler Öğreneceksiniz</h2>
+          <ul>
+            <li>Anadili İngilizce olan kişilerle doğal ve özgüvenli şekilde konuşun</li>
+            <li>Günlük yaşamda gerçekten kullanacağınız kelime ve dilbilgisini öğrenin</li>
+            <li>Rehberli alıştırmalarla dinleme ve telaffuz becerilerinizi geliştirin</li>
+            <li>İş, eğitim veya sınavlar için yazma ve okuma becerilerinizi güçlendirin</li>
+            <li>Uzun vadeli akıcılık için etkili çalışma alışkanlıkları edinin</li>
+          </ul>
+        </div>
+        <img src="study-teal-3.png" alt="Çevrimiçi öğrenme oturumu">
+      </section>
+
+      <section>
+        <h2>Preply’de İlk Dersinizde %30 İndirim Kazanmanın Yolu</h2>
+        <ol>
+          <li>Aşağıdaki butona tıklayarak Preply’ye gidin.</li>
+          <li>Öğrenmek istediğiniz dili seçin ve size uygun eğitmeni bulun.</li>
+          <li>İlk dersinizi ayırtın ve %30 indirimle hemen öğrenmeye başlayın!</li>
+        </ol>
+      </section>
+
+      <div class="center">
+        <a class="cta" id="discountButtonTR"
+           href="https://preply.com/en/?pref=MjE5Mjc2MA==&id=1761352777.480834"
+           target="_blank" rel="noopener">
+           %30 İndirimi İstiyorum
+        </a>
+      </div>
+
+      <footer>
+        <p>Açıklama: Bu sayfa üzerinden ilk dersinizi ayırtırsanız, küçük bir yönlendirme ödülü kazanabilirim —<br>ve ilk dersinizde %30 indirim kazanırsınız.</p><br>
+        <p>Feragat: Bu sayfa bağımsız olarak oluşturulmuştur ve Preply ile bağlantılı değildir.<br>Resmî siteye <a href="https://preply.com" target="_blank" rel="noopener">preply.com</a> adresinden ulaşabilirsiniz, ancak indirim yalnızca bu sayfa üzerinden geçerlidir.</p><br>
+        <p>© 2025 davekpave • Eğitmen Dave B. • PR</p>
+      </footer>
+    </div>
   </main>
 
-  <!-- ✅ Script (toggle + tracking) -->
+  <!-- ✅ Fixed script for reliable toggle -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const toggleBtn = document.getElementById('langToggle');

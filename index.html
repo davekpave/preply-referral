@@ -85,24 +85,19 @@
       line-height: 1;
       text-decoration: none;
       cursor: pointer;
+
       display: inline-flex;
       align-items: center;
       justify-content: center;
+
+      height: 40px;
+      padding: 0 1rem;
+
       box-shadow: 0 3px 10px rgba(255, 122, 172, 0.4);
       transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease;
       appearance: none;
       -webkit-appearance: none;
       outline: none;
-    }
-
-    .header-cta { height: 40px; padding: 0 1rem; }
-
-    .cta {
-      display: inline-block;
-      margin: 3rem auto 1.5rem;
-      padding: 1rem 2rem;
-      font-size: 1rem;
-      border-radius: 50px;
     }
 
     .header-cta:hover,
@@ -118,6 +113,11 @@
       outline-offset: 3px;
     }
 
+    /* Match main CTA to header CTA */
+    .cta {
+      margin: 2.5rem auto 1.5rem;
+    }
+
     .lang-toggle {
       background: #fff;
       border: none;
@@ -128,11 +128,14 @@
       line-height: 1;
       color: var(--text);
       cursor: pointer;
+
       display: inline-flex;
       align-items: center;
       justify-content: center;
+
       height: 40px;
       padding: 0 1rem;
+
       box-shadow: 0 3px 10px rgba(0,0,0,0.1);
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
@@ -159,7 +162,7 @@
       padding: 2rem;
       border-radius: 14px;
       box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-      min-height: 70vh; /* ensures content is always visible */
+      min-height: 70vh;
     }
 
     .split {

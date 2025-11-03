@@ -179,6 +179,7 @@
   </header>
 
   <main>
+    <!-- English content -->
     <div class="lang lang-en active" id="enContent" lang="en">
       <section class="split">
         <div class="content">
@@ -227,6 +228,7 @@
       </footer>
     </div>
 
+    <!-- Turkish content -->
     <div class="lang lang-tr" id="trContent" lang="tr" aria-hidden="true">
       <section class="split">
         <div class="content">
@@ -276,11 +278,14 @@
     </div>
   </main>
 
+  <!-- ✅ Fixed script for reliable toggle -->
   <script>
-    (function () {
+    document.addEventListener('DOMContentLoaded', () => {
       const toggleBtn = document.getElementById('langToggle');
       const enContent = document.getElementById('enContent');
       const trContent = document.getElementById('trContent');
+      if (!toggleBtn || !enContent || !trContent) return;
+
       let current = 'en';
 
       function updateButton() {
@@ -318,16 +323,23 @@
       } catch {
         showEnglish();
       }
-    })();
 
-    // ✅ Conversion tracking on button click
-    document.addEventListener('DOMContentLoaded', () => {
+      // Conversion tracking
       const buttons = document.querySelectorAll('#discountButton, #discountButtonTR');
       buttons.forEach(btn => {
         btn.addEventListener('click', () => {
-          gtag('event', 'conversion', {
-            'send_to': 'AW-17625713572/LucCCJWijbgbEKSXzNRB',
-            'value': 1.0,
-            'currency': 'IDR'
-          });
+          try {
+            if (typeof gtag === 'function') {
+              gtag('event', 'conversion', {
+                'send_to': 'AW-17625713572/LucCCJWijbgbEKSXzNRB',
+                'value': 1.0,
+                'currency': 'IDR'
+              });
+            }
+          } catch (e) {}
         });
+      });
+    });
+  </script>
+</body>
+</html>

@@ -34,16 +34,19 @@
       background: var(--background);
       color: var(--text);
       line-height: 1.6;
+      min-height: 100vh;
     }
 
     header {
       background: var(--primary);
-      height: 70px;
+      min-height: 70px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 20px;
+      padding: 10px 20px;
       flex-wrap: wrap;
+      position: relative;
+      z-index: 10;
     }
 
     .logo {
@@ -61,7 +64,6 @@
       flex-wrap: wrap;
     }
 
-    /* === Header CTA & Main CTA — Preply Pink === */
     .header-cta,
     .cta {
       background: var(--accent);
@@ -110,7 +112,6 @@
       outline-offset: 3px;
     }
 
-    /* === Header Promo Text === */
     .header-promo {
       font-family: 'Segoe UI', Arial, sans-serif;
       font-weight: 600;
@@ -123,7 +124,6 @@
       padding-right: 0.5rem;
     }
 
-    /* Language toggle */
     .lang-toggle {
       background: #fff;
       border: none;
@@ -159,6 +159,8 @@
     }
 
     main {
+      position: relative;
+      z-index: 1;
       max-width: 900px;
       background: var(--card-bg);
       margin: 2rem auto;
@@ -243,6 +245,22 @@
     </div>
   </header>
 
-  <!-- The rest of your page content remains unchanged -->
+  <main>
+    <div class="lang lang-en active" id="enContent" lang="en">
+      <section class="split">
+        <div class="content">
+          <h2>Why Thousands of Students Choose Preply</h2>
+          <ul>
+            <li>Take 1-on-1 lessons with experienced tutors from around the world</li>
+            <li>Choose a schedule and budget that fit your lifestyle</li>
+            <li>Access 30+ languages — from English to Japanese and beyond</li>
+            <li>Enjoy engaging, interactive lessons from home or anywhere</li>
+            <li>Learn confidently with secure payments and trusted support</li>
+          </ul>
+        </div>
+        <img src="study-teal-5.png" alt="Online learning session" loading="lazy" decoding="async">
+      </section>
+    </div>
+  </main>
 </body>
 </html>

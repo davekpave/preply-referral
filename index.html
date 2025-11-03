@@ -91,7 +91,7 @@
       align-items: center;
       justify-content: center;
 
-      height: 40px; /* unified height */
+      height: 40px;
       padding: 0 1.5rem;
 
       box-shadow: 0 3px 10px rgba(255, 122, 172, 0.4);
@@ -121,7 +121,7 @@
       align-items: center;
       text-align: center;
       width: 100%;
-      margin-top: 2.25rem; /* ✅ Added breathing room above the main CTA */
+      margin-top: 2.25rem;
     }
 
     .cta {
@@ -232,18 +232,60 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
+    /* === MOBILE IMPROVEMENTS === */
     @media (max-width:700px) {
       header {
         flex-direction: column;
         height: auto;
-        padding: 10px 15px;
+        padding: 8px 12px 14px;
+        text-align: center;
       }
-      .logo { height: 36px; }
-      .header-right { flex-direction: column; gap: 8px; }
-      .header-text { white-space: normal; text-align: center; margin: 6px 0; }
-      main { margin: 1rem; padding: 1.25rem; }
-      .lang-toggle, .header-cta, .cta { width: 100%; text-align: center; min-width: unset; }
-      .center { margin-top: 1.75rem; } /* slightly tighter on mobile */
+
+      .logo {
+        height: 34px;
+        margin-bottom: 6px;
+      }
+
+      .header-text {
+        font-size: 0.9rem;
+        margin: 4px 0 8px;
+        white-space: normal;
+      }
+
+      .header-right {
+        flex-direction: column;
+        gap: 6px;
+        align-items: center;
+        width: 100%;
+      }
+
+      .header-cta, 
+      .lang-toggle {
+        width: 92%;
+        max-width: 360px;
+      }
+
+      .header-cta {
+        margin-top: 2px;
+        margin-bottom: 4px;
+      }
+
+      .lang-toggle {
+        margin-top: 0;
+      }
+
+      .cta {
+        width: 100%;
+        text-align: center;
+        min-width: unset;
+      }
+
+      main {
+        margin: 1rem;
+        padding: 1.25rem;
+      }
+
+      .center { margin-top: 1.75rem; }
     }
   </style>
 </head>

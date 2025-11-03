@@ -35,13 +35,13 @@
       line-height: 1.6;
     }
 
+    /* Header */
     header {
       background: var(--primary);
-      height: 70px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 20px;
+      padding: 10px 20px;
       position: relative;
       z-index: 10;
     }
@@ -69,7 +69,7 @@
       white-space: nowrap;
     }
 
-    /* === Buttons === */
+    /* Buttons */
     .header-cta,
     .cta {
       background: var(--accent);
@@ -112,26 +112,20 @@
       box-shadow: 0 3px 10px rgba(0,0,0,0.1);
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
-
-    .lang-toggle:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 5px 14px rgba(0,0,0,0.15);
-    }
-
     .lang-toggle span { padding: 0 4px; }
     .lang-toggle .active-lang { color: var(--primary); }
     .lang-toggle .inactive-lang { color: var(--text); opacity: 0.7; }
     .lang-toggle .divider { color: var(--divider); margin: 0 6px; }
 
-    /* === Main === */
+    /* Main */
     main {
       max-width: 900px;
       background: var(--card-bg);
-      margin: 2rem auto;
-      padding: 2rem;
+      margin: 1.25rem auto;    /* reduced margin-top so content isn't visually pushed too far down */
+      padding: 1.75rem;        /* slightly reduced to keep vertical rhythm */
       border-radius: 14px;
       box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-      min-height: 70vh;
+      min-height: 50vh;
     }
 
     .split {
@@ -142,7 +136,7 @@
       margin-bottom: 1.5rem;
     }
 
-    .split .content { flex: 1 1 55%; min-width: 280px; order: 1; }
+    .split .content { flex: 1 1 55%; min-width: 280px; order: 2; }
     .split img {
       flex: 1 1 40%;
       min-width: 260px;
@@ -151,7 +145,7 @@
       border-radius: 12px;
       box-shadow: 0 4px 15px rgba(0,0,0,0.08);
       object-fit: cover;
-      order: 2;
+      order: 1;
     }
 
     h2 { color: var(--primary); margin-top: 1.5rem; margin-bottom: 0.5rem; }
@@ -169,6 +163,8 @@
       border-top: 1px solid #eee;
       line-height: 1.7;
     }
+    footer a { color: var(--primary); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
 
     .center {
       display: flex;
@@ -176,64 +172,65 @@
       align-items: center;
       text-align: center;
       width: 100%;
-      margin-top: 2rem;
+      margin-top: 1.75rem;
+    }
+    .cta { margin: 0 auto; min-width: 220px; height: 40px; }
+
+    .lang {
+      display: none;
+      position: relative;
+      z-index: 1;
+    }
+    .lang.active { display: block; animation: fadeIn 0.25s ease-in; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
-    .cta {
-      margin: 0 auto;
-      min-width: 220px;
-    }
-
-    /* === Mobile Layout Fix === */
+    /* Mobile adjustments & header reorder */
     @media (max-width:700px) {
       header {
         flex-direction: column;
-        height: auto; /* FIX: allow header to grow naturally */
-        padding: 10px 12px 16px;
+        height: auto;
+        padding: 10px 12px;
         text-align: center;
       }
-
-      .logo {
-        height: 34px;
-        margin-bottom: 8px;
-      }
-
+      .logo { height: 34px; margin-bottom: 8px; }
       .header-right {
+        width: 100%;
+        display: flex;
         flex-direction: column;
         align-items: center;
-        width: 100%;
         gap: 8px;
       }
 
-      /* Reorder only for mobile */
+      /* Mobile order: logo (already above), then language toggle, then header text, then CTA */
       .lang-toggle { order: 1; width: 92%; max-width: 360px; }
-      .header-text { order: 2; font-size: 0.9rem; white-space: normal; }
+      .header-text { order: 2; font-size: 0.9rem; white-space: normal; margin: 0 6px; }
       .header-cta { order: 3; width: 92%; max-width: 360px; }
-
-      main {
-        margin-top: 1rem; /* ensure visible content below header */
-        padding: 1.25rem;
-      }
 
       .split { flex-direction: column; }
       .split img { order: 1; margin-bottom: 1rem; }
       .split .content { order: 2; }
+      main { margin: 1rem; padding: 1.25rem; }
       .cta { width: 100%; text-align: center; }
-      .center { margin-top: 1.75rem; }
+      .center { margin-top: 1.25rem; }
     }
   </style>
 </head>
-
 <body>
   <header>
     <img src="PR.png" alt="PR Logo" class="logo" />
     <div class="header-right">
       <span class="header-text">Get 30% Off Your First Lesson on Preply</span>
+
       <a href="https://preply.com/en/?pref=MjE5Mjc2MA==&id=1762162837.049725&ep=w1"
          target="_blank" rel="noopener"
          class="header-cta">
          I Want My 30% Discount
       </a>
+
       <button id="langToggle" class="lang-toggle" aria-label="Switch language" title="Switch language">
         <span class="active-lang">English</span>
         <span class="divider">|</span>
@@ -243,6 +240,7 @@
   </header>
 
   <main>
+    <!-- English -->
     <div class="lang lang-en active" id="enContent" lang="en">
       <section class="split">
         <img src="study-teal-5.png" alt="Online learning session" loading="lazy" decoding="async">
@@ -252,12 +250,92 @@
             <li>Take 1-on-1 lessons with experienced tutors from around the world</li>
             <li>Choose a schedule and budget that fit your lifestyle</li>
             <li>Access 30+ languages — from English to Japanese and beyond</li>
+            <li>Enjoy engaging, interactive lessons from home or anywhere</li>
+            <li>Learn confidently with secure payments and trusted support</li>
+          </ul>
+
+          <h2>What You’ll Learn with Your Language Tutor on Preply</h2>
+          <ul>
+            <li>Speak naturally and confidently with real native speakers</li>
+            <li>Master vocabulary and grammar you’ll actually use in daily life</li>
+            <li>Sharpen your listening and pronunciation through guided practice</li>
+            <li>Strengthen your writing and reading for work, study, or exams</li>
+            <li>Build consistent study habits for long-term fluency and success</li>
           </ul>
         </div>
       </section>
+
+      <section>
+        <h2>How to Get 30% Off Your First Lesson on Preply</h2>
+        <ol>
+          <li>Click the button below to visit Preply.</li>
+          <li>Choose your language and find a tutor who fits your goals.</li>
+          <li>Book your first lesson and start learning right away — with 30% off!</li>
+        </ol>
+      </section>
+
+      <div class="center">
+        <a class="cta" href="https://preply.com/en/?pref=MjE5Mjc2MA==&id=1761352777.480834" target="_blank" rel="noopener">
+           I Want My 30% Discount
+        </a>
+      </div>
+
+      <footer>
+        <p>Disclosure: If you book your first lesson through this page, I may earn a small referral reward — and you’ll receive 30% off your first lesson.</p><br>
+        <p>Disclaimer: This page is independently created and not affiliated with Preply. You can visit the official website at <a href="https://preply.com" target="_blank" rel="noopener">preply.com</a>, but the discount is only available through this page.</p><br>
+        <p>© 2025 davekpave • Tutor Dave B. • PR</p>
+      </footer>
+    </div>
+
+    <!-- Turkish -->
+    <div class="lang lang-tr" id="trContent" lang="tr" aria-hidden="true">
+      <section class="split">
+        <img src="study-teal-5.png" alt="Çevrimiçi öğrenme oturumu" loading="lazy" decoding="async">
+        <div class="content">
+          <h2>Binlerce Öğrencinin Preply’yi Tercih Etme Nedeni</h2>
+          <ul>
+            <li>Dünyanın dört bir yanından deneyimli eğitmenlerle bire bir ders alın</li>
+            <li>Bütçenize ve yaşam tarzınıza uygun bir program oluşturun</li>
+            <li>İngilizce’den Japonca’ya kadar 30’dan fazla dili öğrenin</li>
+            <li>Evde, işte veya istediğiniz yerde etkileşimli derslerin tadını çıkarın</li>
+            <li>Güvenli ödeme sistemi ve profesyonel destekle içiniz rahat olsun</li>
+          </ul>
+
+          <h2>Preply’deki Dil Eğitmeninizle Neler Öğreneceksiniz</h2>
+          <ul>
+            <li>Anadili İngilizce olan kişilerle doğal ve özgüvenli şekilde konuşun</li>
+            <li>Günlük yaşamda gerçekten kullanacağınız kelime ve dilbilgisini öğrenin</li>
+            <li>Rehberli alıştırmalarla dinleme ve telaffuz becerilerinizi geliştirin</li>
+            <li>İş, eğitim veya sınavlar için yazma ve okuma becerilerinizi güçlendirin</li>
+            <li>Uzun vadeli akıcılık için etkili çalışma alışkanlıkları edinin</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <h2>Preply’de İlk Dersinizde %30 İndirim Kazanmanın Yolu</h2>
+        <ol>
+          <li>Aşağıdaki butona tıklayarak Preply’ye gidin.</li>
+          <li>Öğrenmek istediğiniz dili seçin ve size uygun eğitmeni bulun.</li>
+          <li>İlk dersinizi ayırtın ve %30 indirimle hemen öğrenmeye başlayın!</li>
+        </ol>
+      </section>
+
+      <div class="center">
+        <a class="cta" href="https://preply.com/en/?pref=MjE5Mjc2MA==&id=1761352777.480834" target="_blank" rel="noopener">
+           %30 İndirimi İstiyorum
+        </a>
+      </div>
+
+      <footer>
+        <p>Açıklama: Bu sayfa üzerinden ilk dersinizi ayırtırsanız, küçük bir yönlendirme ödülü kazanabilirim — ve ilk dersinizde %30 indirim kazanırsınız.</p><br>
+        <p>Feragat: Bu sayfa bağımsız olarak oluşturulmuştur ve Preply ile bağlantılı değildir. Resmî siteye <a href="https://preply.com" target="_blank" rel="noopener">preply.com</a> adresinden ulaşabilirsiniz, ancak indirim yalnızca bu sayfa üzerinden geçerlidir.</p><br>
+        <p>© 2025 davekpave • Eğitmen Dave B. • PR</p>
+      </footer>
     </div>
   </main>
 
+  <!-- Language toggle logic -->
   <script>
     (function() {
       const toggleBtn = document.getElementById('langToggle');
@@ -266,6 +344,7 @@
       let current = 'en';
 
       function updateButton() {
+        if (!toggleBtn) return;
         if (current === 'en') {
           toggleBtn.innerHTML = '<span class="active-lang">English</span><span class="divider">|</span><span class="inactive-lang">Türkçe</span>';
         } else {
@@ -274,7 +353,7 @@
       }
 
       function showEnglish() {
-        enContent.classList.add('active');
+        if (enContent) enContent.classList.add('active');
         if (trContent) trContent.classList.remove('active');
         current = 'en';
         updateButton();
@@ -282,22 +361,25 @@
 
       function showTurkish() {
         if (trContent) trContent.classList.add('active');
-        enContent.classList.remove('active');
+        if (enContent) enContent.classList.remove('active');
         current = 'tr';
         updateButton();
       }
 
-      toggleBtn.addEventListener('click', () => {
-        if (current === 'en') showTurkish();
-        else showEnglish();
-        try { localStorage.setItem('pref-lang', current); } catch (e) {}
-      });
+      if (toggleBtn) {
+        toggleBtn.addEventListener('click', () => {
+          if (current === 'en') showTurkish();
+          else showEnglish();
+          try { localStorage.setItem('pref-lang', current); } catch (e) {}
+        });
+      }
 
+      // Initialize based on saved preference (if any)
       try {
         const saved = localStorage.getItem('pref-lang');
-        if (saved === 'tr') showTurkish();
+        if (saved === 'tr' && trContent) showTurkish();
         else showEnglish();
-      } catch {
+      } catch (e) {
         showEnglish();
       }
     })();

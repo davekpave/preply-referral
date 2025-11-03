@@ -14,19 +14,8 @@
   <meta property="og:url" content="https://davekpave.github.io/preply-referral-tr/" />
   <meta name="robots" content="index, follow" />
 
-  <!-- ✅ Favicon -->
   <link rel="icon" type="image/png" href="PR.png" />
-
   <link rel="preload" as="image" href="study-teal-3.png" />
-
-  <!-- ✅ Google Tag (Global site tag) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17625713572"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'AW-17625713572');
-  </script>
 
   <style>
     :root {
@@ -50,7 +39,6 @@
     header {
       background: var(--primary);
       height: 70px;
-      position: relative;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -65,7 +53,14 @@
     }
     .logo:hover { transform: scale(1.05); }
 
-    .lang-toggle {
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .lang-toggle,
+    .header-cta {
       background: #fff;
       border: none;
       border-radius: 40px;
@@ -74,12 +69,21 @@
       padding: 0.5rem 1rem;
       box-shadow: 0 3px 10px rgba(0,0,0,0.1);
       transition: transform 0.2s ease, box-shadow 0.2s ease;
+      text-decoration: none;
+      color: var(--text);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Segoe UI', Arial, sans-serif;
     }
+
     .lang-toggle span { padding: 0 4px; }
     .lang-toggle .active-lang { color: var(--primary); }
     .lang-toggle .inactive-lang { color: var(--text); opacity: 0.7; }
     .lang-toggle .divider { color: var(--divider); margin: 0 6px; }
-    .lang-toggle:hover {
+
+    .lang-toggle:hover,
+    .header-cta:hover {
       transform: translateY(-2px);
       box-shadow: 0 5px 14px rgba(0,0,0,0.15);
     }
@@ -100,7 +104,9 @@
       gap: 2rem;
       margin-bottom: 1.5rem;
     }
+
     .split .content { flex: 1; min-width: 260px; order: 1; }
+
     .split img {
       flex: 1;
       min-width: 260px;
@@ -153,17 +159,14 @@
 
     @media (max-width:700px) {
       header {
-        flex-direction: row;
+        flex-direction: column;
         height: auto;
         padding: 10px 15px;
       }
       .logo { height: 36px; }
-      .split { flex-direction: column; }
+      .header-right { flex-direction: column; gap: 8px; }
       main { margin: 1rem; padding: 1.25rem; }
-      .lang-toggle { font-size: 0.9rem; padding: 0.5rem 0.8rem; }
-      .split img { order: 1; }
-      .split .content { order: 2; }
-      .cta { padding: 1.1rem 2.5rem; }
+      .lang-toggle, .header-cta { width: 100%; text-align: center; }
     }
   </style>
 </head>
@@ -171,15 +174,21 @@
 <body>
   <header>
     <img src="PR.png" alt="PR Logo" class="logo" />
-    <button id="langToggle" class="lang-toggle" aria-label="Switch language" title="Switch language">
-      <span class="active-lang">English</span>
-      <span class="divider">|</span>
-      <span class="inactive-lang">Türkçe</span>
-    </button>
+    <div class="header-right">
+      <a href="https://preply.com/en/?pref=MjE5Mjc2MA==&id=1762162837.049725&ep=w1"
+         target="_blank" rel="noopener"
+         class="header-cta">
+         I Want My 30% Discount
+      </a>
+      <button id="langToggle" class="lang-toggle" aria-label="Switch language" title="Switch language">
+        <span class="active-lang">English</span>
+        <span class="divider">|</span>
+        <span class="inactive-lang">Türkçe</span>
+      </button>
+    </div>
   </header>
 
   <main>
-    <!-- English content -->
     <div class="lang lang-en active" id="enContent" lang="en">
       <section class="split">
         <div class="content">
@@ -214,21 +223,18 @@
       </section>
 
       <div class="center">
-        <a class="cta" id="discountButton"
-           href="https://preply.com/en/?pref=MjE5Mjc2MA==&id=1761352777.480834"
-           target="_blank" rel="noopener">
+        <a class="cta" href="https://preply.com/en/?pref=MjE5Mjc2MA==&id=1761352777.480834" target="_blank" rel="noopener">
            I Want My 30% Discount
         </a>
       </div>
 
       <footer>
-        <p>Disclosure: If you book your first lesson through this page, I may earn a small referral reward —<br>and you’ll receive 30% off your first lesson.</p><br>
-        <p>Disclaimer: This page is independently created and not affiliated with Preply.<br>You can visit the official website at <a href="https://preply.com" target="_blank" rel="noopener">preply.com</a>, but the discount is only available through this page.</p><br>
+        <p>Disclosure: If you book your first lesson through this page, I may earn a small referral reward — and you’ll receive 30% off your first lesson.</p><br>
+        <p>Disclaimer: This page is independently created and not affiliated with Preply. You can visit the official website at <a href="https://preply.com" target="_blank" rel="noopener">preply.com</a>, but the discount is only available through this page.</p><br>
         <p>© 2025 davekpave • Tutor Dave B. • PR</p>
       </footer>
     </div>
 
-    <!-- Turkish content -->
     <div class="lang lang-tr" id="trContent" lang="tr" aria-hidden="true">
       <section class="split">
         <div class="content">
@@ -263,29 +269,24 @@
       </section>
 
       <div class="center">
-        <a class="cta" id="discountButtonTR"
-           href="https://preply.com/en/?pref=MjE5Mjc2MA==&id=1761352777.480834"
-           target="_blank" rel="noopener">
+        <a class="cta" href="https://preply.com/en/?pref=MjE5Mjc2MA==&id=1761352777.480834" target="_blank" rel="noopener">
            %30 İndirimi İstiyorum
         </a>
       </div>
 
       <footer>
-        <p>Açıklama: Bu sayfa üzerinden ilk dersinizi ayırtırsanız, küçük bir yönlendirme ödülü kazanabilirim —<br>ve ilk dersinizde %30 indirim kazanırsınız.</p><br>
-        <p>Feragat: Bu sayfa bağımsız olarak oluşturulmuştur ve Preply ile bağlantılı değildir.<br>Resmî siteye <a href="https://preply.com" target="_blank" rel="noopener">preply.com</a> adresinden ulaşabilirsiniz, ancak indirim yalnızca bu sayfa üzerinden geçerlidir.</p><br>
+        <p>Açıklama: Bu sayfa üzerinden ilk dersinizi ayırtırsanız, küçük bir yönlendirme ödülü kazanabilirim — ve ilk dersinizde %30 indirim kazanırsınız.</p><br>
+        <p>Feragat: Bu sayfa bağımsız olarak oluşturulmuştur ve Preply ile bağlantılı değildir. Resmî siteye <a href="https://preply.com" target="_blank" rel="noopener">preply.com</a> adresinden ulaşabilirsiniz, ancak indirim yalnızca bu sayfa üzerinden geçerlidir.</p><br>
         <p>© 2025 davekpave • Eğitmen Dave B. • PR</p>
       </footer>
     </div>
   </main>
 
-  <!-- ✅ Fixed script for reliable toggle -->
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
+    (function() {
       const toggleBtn = document.getElementById('langToggle');
       const enContent = document.getElementById('enContent');
       const trContent = document.getElementById('trContent');
-      if (!toggleBtn || !enContent || !trContent) return;
-
       let current = 'en';
 
       function updateButton() {
@@ -323,23 +324,7 @@
       } catch {
         showEnglish();
       }
-
-      // Conversion tracking
-      const buttons = document.querySelectorAll('#discountButton, #discountButtonTR');
-      buttons.forEach(btn => {
-        btn.addEventListener('click', () => {
-          try {
-            if (typeof gtag === 'function') {
-              gtag('event', 'conversion', {
-                'send_to': 'AW-17625713572/LucCCJWijbgbEKSXzNRB',
-                'value': 1.0,
-                'currency': 'IDR'
-              });
-            }
-          } catch (e) {}
-        });
-      });
-    });
+    })();
   </script>
 </body>
 </html>
